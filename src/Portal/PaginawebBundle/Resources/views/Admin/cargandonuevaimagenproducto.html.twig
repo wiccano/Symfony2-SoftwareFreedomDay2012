@@ -1,0 +1,201 @@
+<section id="galleryProducts">
+	{% if imagenes is defined %}
+		{% set cont = 0 %}
+	 	{% for imagen in imagenes %}
+			{% set Ruta = 'uploads/documents/' ~ imagen.ImagenNombre %}
+			{% if(cont > 0) %}
+				<div id="moreGallery">
+			{% endif %}
+		 	<a id="gallery" rel="gallery01" title="{{ imagen.ImagenTitulo }}" href="{{ asset(Ruta) }}">
+		 		<img src="{{ asset(Ruta) }}" alt="{{ imagen.ImagenTitulo }}" style="width:170px; height:150px; margin-top:5px; margin-left:5px;">
+		 	</a>
+			{% if(cont > 0) %}
+				</div>
+			{% endif %}
+			{% set cont = cont + 1 %}
+		{% endfor %}
+		
+
+	
+	{% endif %}
+	
+</section>
+
+
+
+{% if producto_codigo is defined %}
+	<script>
+		$("#formAddProducto_producto_codigo").val({{ producto_codigo }});
+		$("#formAddImagen_producto_codigo").val({{ producto_codigo }});
+	</script>
+	
+	<section id="ImageLoading">
+		<form id="Form_Imagen" name="Form_Imagen" method="post" {{ form_enctype(formImagen) }}>
+		<p>Cargar Contenido e Imagenes al Producto</p>
+		
+		<fieldset>
+			<table style="width:100%;">
+				<tr>
+					<th style="width:400px; font-weight: bold;">Imagen del Producto</td>
+					<th style="width:*%; font-weight: bold;">Detalles del Producto</td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">
+						<div id="ImagePlaceLoad">
+							
+							<figure>
+								<img id="ImageIdent" alt="" src="{{ asset('bundles/portalpaginaweb/images/placeholder.jpg') }}" width="170px" height="150px">
+							</figure>
+							<div id="ImageName" style="color:blue; text-align: center;"></div>
+						</div>
+						<br><br>
+						<button type="submit" name="actualizar" id="upload" style="clear:both;">Cargar Imagen</button>
+						
+						<button type="submit" name="actualizar" id="btn_submitproduct" style="clear:both;">Guardar</button>
+					</td>
+					<td>
+						{{ form_widget(formImagen.imagen_titulo) }}<br><br>
+						{{ form_widget(formImagen.imagen_texto) }}
+					</td>
+				</tr>
+			</table>
+			<div style="display:none;">{{ form_rest(formImagen) }}</div>
+		</fieldset>
+		</form>
+	</section>
+{% endif %}
+
+
+
+<script>
+	$('#Form_Producto').submit(function( e ) {
+		$('#FrmProducto_result').html('');
+		$('#tab3_Preloader').show();
+		var producto_codigo = $("#formAddProducto_producto_codigo").val();
+		
+		$.ajax({
+            type: 'POST',
+            url: Routing.generate("PortalPaginawebBundle_formProducto", { producto_codigo: producto_codigo }),
+            data: $(this).serialize(),
+            success: function(data) {
+                var $tab3_content = $('#tab3_content').html('');
+				$tab3_content.html(data);
+				
+				
+				
+				$('#tab3_Preloader').hide();
+				
+				$('#formAddProducto_categoria_codigo').dropkick();
+				$('#formAddProducto_tipoproducto_codigo').dropkick();
+				$('#admin_container #admincontent').css('width','0px');
+				
+				$('#tab3_content').slideDown(1000);
+				
+				var $BookAjax = $('div#book').html('');
+			    $.ajax({
+			        url : Routing.generate("PortalPaginawebBundle_cargandomenu"),
+			        success : function (data){
+			            // Aquí desaparece la imagen ya que estamos reemplazando todo el HTML del contenido de la div.
+			            $BookAjax.html(data);
+			        }
+			    });
+				
+            },
+			error: function(data){
+				alert('Ha ocurrido un error inesperado. Recargue la página e intente de nuevo o consulte a los desarrolladores del sistema');
+			}
+        })
+		        
+        e.preventDefault();
+    });
+	
+	
+	btn_backproducts = {
+		$btn_backproduct: function(){
+			return $("#btn_backproducts");
+		},
+	},
+	btn_backproducts.$btn_backproduct().on("click", function( e ){
+		
+		CargarProductos(0);
+		
+		e.preventDefault();
+	});
+	
+	
+	$('#Form_Imagen').submit(function( e ) {
+		$('#FrmProducto_result').html('');
+		$('#tab3_Preloader').show();
+		
+		var producto_codigo = $("#formAddProducto_producto_codigo").val();
+		
+		$.ajax({
+            type: 'POST',
+            url: Routing.generate("PortalPaginawebBundle_formImagen", { producto_codigo: producto_codigo }),
+            data: $(this).serialize(),
+            success: function(data) {
+                
+				$('#FrmProducto_result').html(data);
+								
+				$('#tab3_Preloader').hide();
+				
+				
+
+            },
+			error: function(data){
+				alert('Ha ocurrido un error inesperado. Recargue la página e intente de nuevo o consulte a los desarrolladores del sistema');
+			}
+        })
+		        
+        e.preventDefault();
+    });
+	
+	
+	
+
+	var button = $('#upload'), interval;
+    new AjaxUpload(button,{
+        action: Routing.generate("PortalPaginawebBundle_addImagen"),
+        name: 'image',
+        responseType: false,
+        onSubmit : function(file, ext){
+			
+			var producto_codigo = $("#formAddProducto_producto_codigo").val();
+			
+			if(producto_codigo == 0) {
+				$('#FrmProducto_result').html('<br><p>Debe crear el Producto antes de cargar contenido a él</p>');
+				return false;
+			}
+			
+            // cambiar el texto del boton cuando se selecicione la imagen
+            button.text('Cargando');
+            // desabilitar el boton
+                this.disable();
+ 
+                interval = window.setInterval(function(){
+                    var text = button.text();
+                	if (text.length < 11){
+                		button.text(text + '.');
+            	} else {
+                	button.text('Cargando');
+            	}
+        	}, 200);
+    	},
+        onComplete: function(file, response){
+            button.text('Cargar Imagen');
+ 
+            window.clearInterval(interval);
+ 
+            // Habilitar boton otra vez
+            this.enable();
+ 
+            // Añadiendo las imagenes a mi lista
+			$("#ImageIdent").attr('src', '{{ asset('uploads/documents/') }}' + file);
+			$("#ImageName").html(file);
+			$("#formAddImagen_imagen_nombre").attr('value', file);
+			
+			$('#FrmProducto_result').html(response);
+        }
+    });
+
+</script>	

@@ -1,0 +1,201 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+ <!--CONTENT HOME INIT HERE-->
+<article id="content">
+    <!--INIT WITH THE SLIDER-->
+    <div id="sliderBox">
+        
+        <div id="s3slider"><!--INIT S3 SLIDER-->
+            <!--HERE START THE SLIDE-->
+            <ul id="s3sliderContent">
+                <!--1ST BANNER SLIDE OFFER-->
+                <li class="s3sliderImage">
+                  <img src="{{ asset('bundles/portalpaginaweb/sliders/home/slider1-Transport.jpg') }}" />
+                  <span class="left">
+                    <h1>{{ translate('Slider1 Title', {}, 'inicio') | raw }}</h1>
+                    <p>{{ translate('Slider1 Content', {}, 'inicio') | raw }} 
+                    <br /></p><a href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                  </span>
+              </li>
+              <!--1ST BANNER SLIDE OFFER-->
+              <li class="s3sliderImage">
+                  <img src="{{ asset('bundles/portalpaginaweb/sliders/home/slider1-Transport.jpg') }}" />
+                  <span class="left">
+                    <h1>{{ translate('Slider2 Title', {}, 'inicio') | raw }}</h1>
+                    <p>{{ translate('Slider1 Content', {}, 'inicio') | raw }} 
+                    <br /></p><a href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+        
+                  </span>
+              </li>
+              <div class="clear s3sliderImage"><!--CLEAR THE BANNERS--></div>
+           </ul>
+        </div><!--ENDS S3 SLIDER-->
+        
+    </div>
+</article>
+
+
+<!--MIDDLE ARTICLE CONTENT-->
+ <article id="content" class="middle">  
+ <!-- INIT THE SERVICES FEATURED BOX--> 
+    <div id="featureSevices">
+        <!-- ONLY TITTLE -->
+        <div id="tittleSect" class="servicesTop">
+            <h2>{{ translate('Nuestros Servicios', {}, 'inicio') | raw }}</h2>
+        </div>	
+        
+        <div id="serviceBox">
+            <ul id="servHome" class="clearfix">
+                <!--1ST FEATURED SERVICE CONTENT-->
+                    <li><span>{{ translate('Transporte', {}, 'inicio') | raw }}</span>
+                        <a href="#"><img src="{{ asset('bundles/portalpaginaweb/services/service-transport-home.jpg') }}" alt="{{ translate('Transporte', {}, 'header') | raw }}" /></a>
+                        <p>{{ translate('Transporte Text', {}, 'inicio') | raw }}</p>
+                        <a class="readmores" href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                    </li>
+                    <hr class="spacer" />
+                <!--2ND FEATURED SERVICE CONTENT-->    
+                    <li><span>{{ translate('Seguridad', {}, 'inicio') | raw }}</span>
+                        <a href="#"><img src="{{ asset('bundles/portalpaginaweb/services/service-security-home.jpg') }}" alt="Seguridad" /></a>
+                         <p>{{ translate('Seguridad Text', {}, 'inicio') | raw }}</p>
+                    	<a class="readmores" href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                    </li>
+                    <hr class="spacer" />
+                <!--3RD FEATURED SERVICE CONTENT-->    
+                    <li><span>{{ translate('Comunicaciones', {}, 'inicio') | raw }}</span>
+                        <a href="#"><img src="{{ asset('bundles/portalpaginaweb/services/service-communications-home.jpg') }}" alt="Comunicaciones" /></a>
+                        <p>{{ translate('Comunicaciones Text', {}, 'inicio') | raw }}</p>
+                    	<a class="readmores" href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                    </li>
+                    <hr class="spacer" />
+                <!--4TH FEATURED SERVICE CONTENT-->    
+                    <li><span>{{ translate('Almacenamiento', {}, 'inicio') | raw }}</span>
+                        <a href="#"><img src="{{ asset('bundles/portalpaginaweb/services/service-packet-home.jpg') }}" alt="Almacenamiento" /></a>
+                         <p>{{ translate('Almacenamiento Text', {}, 'inicio') | raw }}</p>
+                    	<a class="readmores" href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                    </li>
+            </ul>
+        </div>	                
+                            
+    </div><!--ENDS SERVICES FEATURED-->	
+        
+</article><!--MIDDLE ARTICLE CONTENT-->
+
+<!--INIT CONTAINER WITH NEWS-->
+
+<article id="content" class="news">
+<!--NEWS CONTAINER-->
+    <div id="newsFull">
+    <!--LEFT AREA-->
+        <aside id="leftCont">
+            <div id="clientArea">
+                <div id="boxZone">
+                    <span class="titBlack">{{ translate('Zona Clientes', {}, 'inicio') | raw }}</span>
+                    <a href="#"><img src="{{ asset('bundles/portalpaginaweb/services/clients-zone-home.jpg') }}"></a>
+                </div>
+                <hr class="spacer" />
+                <div id="boxZone">
+                    <span class="titBlack">{{ translate('Conocenos', {}, 'inicio') | raw }}</span>
+                    <!--object style="height: 155px; width: 299px"><param name="movie" value="http://www.youtube.com/v/K7JWvRI-8fs?version=3&feature=player_detailpage"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/K7JWvRI-8fs?version=3&feature=player_detailpage" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="299" height="155"></object-->
+                    <a href="#"><img src="{{ asset('bundles/portalpaginaweb/services/service-truck-home.jpg') }}"></a>
+                </div>
+            </div>
+            
+            <div id="tittleSect" class="giftsRight">
+                <h2>{{ translate('Nuestro compromiso', {}, 'inicio') | raw }}</h2>                       
+            </div>	
+                <!--1ST GIFT BOX--> 
+                <div id="gift">
+                    <div class="blackVertical">
+                        <span>{{ translate('Certificaciones', {}, 'inicio') | raw }}</span></div>
+                            <div id="s3min1Sl" class="minSlides">
+                               <ul id="s3min1SlContent">
+                                <!--1ST CERTIF SLIDE-->
+                                  <li class="s3min1SlImage">
+                                     <a href="#">
+                                        <img src="{{ asset('bundles/portalpaginaweb/sliders/certificaciones/certif1-BASC.jpg') }}" alt="{{ translate('Certificacion - BASC', {}, 'inicio') | raw }}" /></a>
+                                      <span class="left">
+                                        <p>{{ translate('Certificacion #1 - BASC', {}, 'inicio') | raw }}</p>
+                                      </span>
+                                  </li>
+                                  <!--1ST CERTIF SLIDE-->
+                                  <li class="s3min1SlImage">
+                                      <a href="#">
+                                      <img src="{{ asset('bundles/portalpaginaweb/sliders/certificaciones/certif1-BASC.jpg') }}" alt="{{ translate('Certificacion - BASC', {}, 'inicio') | raw }}" /></a>
+                                      <span class="left">
+                                        <p>{{ translate('Certificacion # 2 - BASC', {}, 'inicio') | raw }}</p>
+                                      </span>
+                                  </li>
+                                  <div class="clear s3min1SlImage"><!--CLEAR THE BANNERS--></div>
+                               </ul>	
+                            </div><!--S3 Slide Min -->
+                </div>
+                <hr class="spacer" />
+                <!--2ND GIFT BOX-->
+                <div id="gift">
+                    <div class="blackVertical">
+                        <span>{{ translate('Premios', {}, 'inicio') | raw }}</span></div>
+                            <div id="s3min2Sl" class="minSlides">
+                               <ul id="s3min2SlContent">
+                                <!--1ST CERTIF SLIDE-->
+                                  <li class="s3min2SlImage">
+                                     <a href="#">
+                                        <img src="{{ asset('bundles/portalpaginaweb/sliders/premios/premio1.jpg') }}" alt="{{ translate('Premio', {}, 'inicio') | raw }}" /></a>
+                                      <span class="left">
+                                        <p>{{ translate('Premio #2', {}, 'inicio') | raw }}</p>
+                                      </span>
+                                  </li>
+                                  <!--1ST CERTIF SLIDE-->
+                                  <li class="s3min2SlImage">
+                                      <a href="#">
+                                      <img src="{{ asset('bundles/portalpaginaweb/sliders/premios/premio1.jpg') }}" alt="{{ translate('Premio', {}, 'inicio') | raw }}" /></a>
+                                      <span class="left">
+                                        <p>{{ translate('Premio #3', {}, 'inicio') | raw }}</p>
+                                      </span>
+                                  </li>
+                                  <div class="clear s32minSlImage"><!--CLEAR THE BANNERS--></div>
+                               </ul>	
+                            </div><!--S3 Slide Min -->                     	
+                </div>
+            
+        </aside>
+        
+    <!--RIGHT AREA-->       
+        <aside id="rightCont">
+       	<!--LATEST NEWS AREA-->
+            <div id="tittleSect" class="newsRight">
+                <h2>{{ translate('Ultimas Noticias', {}, 'inicio') | raw }}</h2>
+            </div>	
+			<!--NEWS BOX-->
+                <div id="newsFeatured">
+                <div class="slides_container">
+                    <div>
+                        <img src="{{ asset('bundles/portalpaginaweb/sliders/news/home/homeNews1.jpg') }}" alt="{{ translate('News - 1', {}, 'inicio') | raw }}" />
+                        <span class="titNews">{{ translate('Cetificaciones', {}, 'inicio') | raw }}Titulo de Noticia #1 04/05/2012</span>
+                        <p>The Dot Studio está enfocado en el desarrollo de estrategias comerciales innovadoras para publicitar, posicionar e incrementar el reconocimiento de marcas, productos, servicios y eventos por medio de herramientas digitales, involucrando diversas aéreas en el campo creativo con el fin de desarrollar conceptos contundentes para ser plasmados en todas las piezas creativas que se gestan en el Estudio.Representamos de forma creativa sus ideas hasta convertirlas en productos y servicios de excelente calidad, considerando el valor agregado que se desea imprimir a cada uno de éstos.</p>
+                        <a class="readmores" href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                    </div>
+                    <div>
+                        <img src="{{ asset('bundles/portalpaginaweb/sliders/news/home/homeNews1.jpg') }}" alt="{{ translate('News - 2', {}, 'inicio') | raw }}" />
+                        <span class="titNews">{{ translate('Titulo de Noticia #2 04/06/2012', {}, 'inicio') | raw }}</span>
+                        <p>The Dot Studio está enfocado en el desarrollo de estrategias comerciales innovadoras para publicitar, posicionar e incrementar el reconocimiento de marcas, productos, servicios y eventos por medio de herramientas digitales, involucrando diversas aéreas en el campo creativo con el fin de desarrollar conceptos contundentes para ser plasmados en todas las piezas creativas que se gestan en el Estudio.Representamos de forma creativa sus ideas hasta convertirlas en productos y servicios de excelente calidad, considerando el valor agregado que se desea imprimir a cada uno de éstos.</p>
+                        <a class="readmores" href="#">{{ translate('Ver mas', {}, 'inicio') | raw }}</a>
+                    </div>
+                </div>
+            </div>
+                    
+        </aside>
+    
+    </div><!--ENDS NEWS FULL--->     
+    
+</article><!--ENDS NEWS CONTENT ARTICLE
+        
+<!--ENDS CONTENT HOME-->    
+
+{% endblock %}
+
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Inicio:js_inicio.html.twig' with {} %}
+{% endblock %}

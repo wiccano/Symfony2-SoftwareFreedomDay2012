@@ -1,0 +1,46 @@
+<section id="AdminCategoryList">
+	<header>
+		<h2>Seleccione un tipo de Menú para filtrar la tabla de Categorias</h2>
+		<br>
+		<select name="selectMenu" id="selectMenu">
+			<option value="0">TODOS</option>
+			{% for menu in menus %}
+				{% if( menu_codigo > 0 and (menu_codigo == menu.MenuCodigo )) %}
+					<option value="{{ menu.MenuCodigo }}" selected>{{ menu.MenuNombre }}</option>
+				{% else %}
+					<option value="{{ menu.MenuCodigo }}">{{ menu.MenuNombre }}</option>
+				{% endif %}
+				
+			{% endfor %}
+		</select>
+		<button name="btn_newcategory" type="button" id="btn_newcategory" style="margin-left:15px;">Nueva Categoria</button>
+	</header>
+	<br>
+	<article id="ProductList">
+		<p>Lista de Categorias</hp>
+		<div id="CategoryListContainer">
+			<table id="CategoryList_table" cellspacing="0">
+				<thead><tr>
+					<th>Nombre</th>
+					<th>Menú</th>
+					<th>Peso</th>
+					<th>Descripción</th>
+				</tr></thead>
+				<tbody>
+				<tr class="first">
+				{% for categoria in categorias %}
+					<td onclick="dobleclickCategoria({{ categoria.CategoriaCodigo}})">{{ categoria.CategoriaNombre}}</td>
+					<td onclick="dobleclickCategoria({{ categoria.CategoriaCodigo}})">{{ categoria.MenuCodigo.MenuNombre}}</td>
+					<td onclick="dobleclickCategoria({{ categoria.CategoriaCodigo}})" style="text-align:center;">{{ categoria.CategoriaPeso}}</td>
+					<td onclick="dobleclickCategoria({{ categoria.CategoriaCodigo}})">{{ categoria.CategoriaDescripcion}}</td>
+					</tr><tr>
+				{% endfor %}
+			</tr></tbody></table>
+		</div>
+	</article>
+	
+</section>
+
+<script>
+
+</script>         

@@ -1,0 +1,54 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="es"> <!--<![endif]-->
+
+<head>
+    {% include 'PortalPaginawebBundle::head_content.html.twig' with {} %}
+</head>
+
+<body>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<!--Inicio del Sitio SFD::Bogota:2012 - Symfony2 -->
+
+<div id="wrapper">
+	
+    <header id="header">
+        {% include 'PortalPaginawebBundle::header_content.html.twig' with {} %}
+    </header>
+		    
+
+	<article id="content" style="overflow: hidden;">
+	
+		<section id="book"></section>
+	
+		<section id="intro">
+	  		{% block content %}{% endblock %}
+	 	</section>
+	
+	</article>
+	
+	<footer id="footer">		
+    	{% block footer %}
+        	{% include 'PortalPaginawebBundle::footer_content.html.twig' with {} %}
+    	{% endblock %}
+    </footer>
+
+</div>
+
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="{{ asset('bundles/portalpaginaweb/js/libs/jquery-1.7.1.min.js') }}"><\/script>')</script>
+<script src="{{ asset('bundles/portalpaginaweb/js/libs/nicescroll/jquery.nicescroll.min.js') }}"></script>
+
+{% block javascript_start %}{% endblock %}
+
+{% include 'PortalPaginawebBundle::js_general.html.twig' with {} %}
+			
+</body>
+</html>		
+		

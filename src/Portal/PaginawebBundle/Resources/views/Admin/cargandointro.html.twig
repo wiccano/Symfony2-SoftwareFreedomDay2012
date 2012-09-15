@@ -1,0 +1,238 @@
+<div id="NewIntroimagenTitle" style="width:100%;"><h2 style="font-weight:bold; float:left;">Imagenes del Intro de cada sección</h2></div>
+<br><br>
+<section id="AdminIntroimagen">
+	<header>
+		<h2>Seleccione Menú</h2>
+		<br>
+		<select name="selectIntroimagen" id="selectIntroimagen">
+			<option value="0">INTRO</option>
+			{% for menu in menus %}
+				{% if( menu_codigo > 0 and (menu_codigo == menu.MenuCodigo )) %}
+					<option value="{{ menu.MenuCodigo }}" selected>{{ menu.MenuNombre }}</option>
+				{% else %}
+					<option value="{{ menu.MenuCodigo }}">{{ menu.MenuNombre }}</option>
+				{% endif %}
+				
+			{% endfor %}
+		</select>
+		
+	</header>
+	<br>
+	<article id="IntroimagenList">
+		
+			{% set imgleft = 'uploads/intro/' ~  introimagen.Imagen1Nombre %}
+			{% set imgup = 'uploads/intro/' ~  introimagen.Imagen2Nombre %}
+			{% set imgdown = 'uploads/intro/' ~  introimagen.Imagen3Nombre %}
+			
+			<br><br><h1>Estas son las tres(3) imagenes asociadas a esta sección:</h1><br>
+			<form id="Form_Introimagen" name="Form_Introimagen" method="post" enctype="multipart/form-data">
+			<table>
+				<tr>
+					<td>
+						<img id="img_upload_intro_left" src="{{ asset(imgleft) }}" style="width:60px; height:140px;">
+					</td>
+					<td>
+						<h1>Titulo</h1>
+						<input type="text" id="text_intro_left" name="intro_left" style="width: 400px; height:20px; position:relative;" value="{{ introimagen.Imagen1Titulo }}">
+						<button type="button" name="upload_intro_left" id="upload_intro_left" style="clear:both;">Cargar Imagen &gt;&gt;</button>
+					</td>
+				</tr><tr>
+					<td>
+						<br><br><img id="img_upload_intro_up" src="{{ asset(imgup) }}" style="width:140px; height:120px;">
+					</td>
+					<td>
+						<h1>Titulo</h1>
+						<input type="text" id="text_intro_up" name="intro_up" style="width: 400px; height:20px; position:static;" value="{{ introimagen.Imagen2Titulo }}">
+						<button type="button" name="upload_intro_up" id="upload_intro_up" style="clear:both;">Cargar Imagen &gt;&gt;</button>
+					</td>
+				</tr><tr>
+					<td>
+						<br><br><img id="img_upload_intro_down" src="{{ asset(imgdown) }}" style="width:140px; height:120px;">
+					</td>
+					<td>
+						<h1>Titulo</h1>
+						<input type="text" id="text_intro_down" name="intro_down" style="width: 400px; height:20px; position:static;"  value="{{ introimagen.Imagen3Titulo }}">
+						<button type="button" name="upload_intro_down" id="upload_intro_down" style="clear:both;">Cargar Imagen &gt;&gt;</button>
+					</td>
+				</tr>
+			</table>
+			</form>
+			
+			
+			<script>
+	
+				var button1 = $('#upload_intro_left'), interval;
+			    new AjaxUpload(button1,{
+			        action: Routing.generate("PortalPaginawebBundle_addIntroimagen", {seccion: {{ menu_codigo }}, tipo: 'left', nombrecampo: 'image_intro_left'}),
+			        name: 'image_intro_left',
+			        responseType: false,
+			        debug: true,
+			        onSubmit : function(file, ext){
+			        	
+			        	if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) { 
+			                // extension is not allowed 
+			                alert('Solo archivos tipo JPG, PNG o GIF son permitidos');
+			                return false;
+			            }
+			    		
+			    		var title1 = $('#text_intro_left').val();
+			    		
+			    		this.setData({
+			               titulo : title1,
+			            });
+						
+			            // cambiar el texto del boton cuando se selecicione la imagen
+			            button1.text('Cargando');
+			            // desabilitar el boton
+			                this.disable();
+			 
+			                interval = window.setInterval(function(){
+			                    var text = button1.text();
+			                	if (text.length < 11){
+			                		button1.text(text + '.');
+			            	} else {
+			                	button1.text('Cargando');
+			            	}
+			        	}, 200);
+			    	},
+			        onComplete: function(file, response){
+			            button1.text('Cargar Imagen');
+			 
+			            window.clearInterval(interval);
+			 
+			            // Habilitar boton otra vez
+			            this.enable();
+			 
+			 			if(response=="true"){
+				 			// Añadiendo las imagenes a mi lista
+							$("#img_upload_intro_left").attr('src', '{{ asset('uploads/intro/') }}' + file);
+							
+							alert('La imagen ha sido cargada!');
+						} else {
+							alert(response);
+						}
+	
+			            						
+			        },
+			        messages: {
+    // error messages, see qq.FileUploaderBasic for content
+					},
+					showMessage: function(message){ alert(message); }
+			    });
+			    
+			    
+			    var button2 = $('#upload_intro_up'), interval;
+			    new AjaxUpload(button2,{
+			        action: Routing.generate("PortalPaginawebBundle_addIntroimagen", {seccion: {{ menu_codigo }}, tipo: 'up', nombrecampo: 'image_intro_up'}),
+			        name: 'image_intro_up',
+			        responseType: false,
+			        onSubmit : function(file, ext){
+			        	
+			        	if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) { 
+			                // extension is not allowed 
+			                alert('Solo archivos tipo JPG, PNG o GIF son permitidos');
+			                return false;
+			            }
+						
+						var title2 = $('#text_intro_up').val();
+						
+						this.setData({
+			               titulo : title2,
+			            });
+						
+			            // cambiar el texto del boton cuando se selecicione la imagen
+			            button2.text('Cargando');
+			            // desabilitar el boton
+			                this.disable();
+			 
+			                interval = window.setInterval(function(){
+			                    var text = button2.text();
+			                	if (text.length < 11){
+			                		button2.text(text + '.');
+			            	} else {
+			                	button2.text('Cargando');
+			            	}
+			        	}, 200);
+			    	},
+			        onComplete: function(file, response){
+			            button2.text('Cargar Imagen');
+			 
+			            window.clearInterval(interval);
+			 
+			            // Habilitar boton otra vez
+			            this.enable();
+			 
+			            // Añadiendo las imagenes a mi lista
+						$("#img_upload_intro_up").attr('src', '{{ asset('uploads/intro/') }}' + file);
+						
+						alert('La imagen ha sido cargada!');
+						
+			        }
+			    });
+			    
+			    var button3 = $('#upload_intro_down'), interval;
+			    new AjaxUpload(button3,{
+			        action: Routing.generate("PortalPaginawebBundle_addIntroimagen", {seccion: {{ menu_codigo }}, tipo: 'down', nombrecampo: 'image_intro_down'}),
+			        name: 'image_intro_down',
+			        responseType: false,
+			        onSubmit : function(file, ext){
+			        	
+			        	if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) { 
+			                // extension is not allowed 
+			                alert('Solo archivos tipo JPG, PNG o GIF son permitidos');
+			                return false;
+			            }
+			        	
+			        	var title3 = $('#text_intro_down').val();
+			        	
+			        	this.setData({
+			               titulo : title3,
+			            });
+
+			            // cambiar el texto del boton cuando se selecicione la imagen
+			            button3.text('Cargando');
+			            // desabilitar el boton
+			                this.disable();
+			 
+			                interval = window.setInterval(function(){
+			                    var text = button3.text();
+			                	if (text.length < 11){
+			                		button3.text(text + '.');
+			            	} else {
+			                	button3.text('Cargando');
+			            	}
+			        	}, 200);
+			    	},
+			        onComplete: function(file, response){
+			            button3.text('Cargar Imagen');
+			 
+			            window.clearInterval(interval);
+			 
+			            // Habilitar boton otra vez
+			            this.enable();
+			 
+			            // Añadiendo las imagenes a mi lista
+						$("#img_upload_intro_down").attr('src', '{{ asset('uploads/intro/') }}' + file);
+						
+						alert('La imagen ha sido cargada!');
+						
+			        }
+			    });
+			
+			</script>
+			
+
+		
+	</article>
+	
+</section>
+
+
+
+
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,55 @@
+PortalPaginawebBundle_raiz:
+    pattern:  /   
+    defaults: { _controller: PortalPaginawebBundle:Inicio:raiz }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_inicio:
+    pattern:  /{_locale}
+    defaults: { _controller: PortalPaginawebBundle:Inicio:inicio }
+    options:
+        expose: true
+    requirements:
+        _locale: es|en
+        
+PortalPaginawebBundle_cargandocontacto:
+    pattern:  /cargandocontacto
+    defaults: { _controller: PortalPaginawebBundle:Inicio:cargandocontacto }
+    prefix: /{_locale}
+    options:
+        expose: true
+    requirements:
+        _locale: es|en
+        
+PortalPaginawebBundle_cargandomenu:
+    pattern:  /cargandomenu/{Tipomenu}
+    defaults: { _controller: PortalPaginawebBundle:Inicio:cargandomenu }
+    prefix: /{_locale}
+    options:
+        expose: true
+    requirements:
+        _locale: es|en
+        
+PortalPaginawebBundle_cargandointroimagen:
+    pattern:  /cargandointroimagen/{Tipomenu}
+    defaults: { _controller: PortalPaginawebBundle:Inicio:cargandointroimagen }
+    prefix: /{_locale}
+    options:
+        expose: true
+    requirements:
+        _locale: es|en
+
+PortalPaginawebBundle_cargandocontenidoprincipal:
+    pattern:  /cargandocontenidoprincipal/{producto_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Inicio:cargandocontenidoprincipal }
+    prefix: /{_locale}
+    options:
+        expose: true
+    requirements:
+        _locale: es|en
+        
+PortalPaginawebBundle_downloadhojavida:
+    pattern:  /downloadhojavida
+    defaults: { _controller: PortalPaginawebBundle:Inicio:downloadhojavida }
+    options:
+        expose: true

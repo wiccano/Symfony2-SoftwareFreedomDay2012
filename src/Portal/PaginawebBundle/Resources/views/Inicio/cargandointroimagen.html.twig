@@ -1,0 +1,25 @@
+{% set ileft = 'uploads/intro/' ~ Imagen.Imagen1Nombre %}
+{% set iup = 'uploads/intro/' ~ Imagen.Imagen2Nombre %}
+{% set idown = 'uploads/intro/' ~ Imagen.Imagen3Nombre %}
+
+<div id=intro_left>
+	<img alt="" src="{{ asset(ileft) }}" style="width: 248px; height:650px;">
+	<div id=intro_left_colorfooter>
+		<p>&gt;&gt; {{ Imagen.Imagen1Titulo }}</p>
+	</div>		
+</div>
+
+<div id=intro_up>
+	<img alt="" src="{{ asset(iup) }}" style="width: 550px; height:416px;">
+	<div id=intro_up_colorfooter>
+		<p>&gt;&gt; {{ Imagen.Imagen2Titulo }}</p>
+	</div>	
+</div>
+
+<div id=intro_down>
+	<img alt="" src="{{ asset(idown) }}" style="width: 550px; height:223px;">
+	<div id=intro_down_colorfooter>
+		<p>&gt;&gt; {{ Imagen.Imagen3Titulo }}</p>
+	</div>		
+</div>
+

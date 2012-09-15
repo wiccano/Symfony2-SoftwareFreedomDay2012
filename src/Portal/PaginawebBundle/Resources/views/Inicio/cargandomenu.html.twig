@@ -1,0 +1,28 @@
+{% set Categoria = 0 %}
+{% set MenuCont = 0 %}
+
+<nav role="section_nav">
+	{% for producto in productos %}
+		
+		{% set ProductoCategoria = producto.CategoriaCodigo.CategoriaCodigo  %}
+		{% set Menu1 = producto.CategoriaCodigo.MenuCodigo.MenuCodigo  %}
+		
+		{% if MenuCont != Menu1 %}			
+			{% if MenuCont > 0 %}_____________________<br><br>{% endif %}
+			<p id=book_title>{{ producto.CategoriaCodigo.MenuCodigo.MenuNombre }}</p>
+		{% endif %}
+		
+		{% if Categoria != ProductoCategoria %}
+			<p class="book_subtitle1">{{ producto.CategoriaCodigo.CategoriaNombre }}</p>
+		{% endif %}
+		
+		<p class="book_text" onclick="LoadMainContent({{ producto.ProductoCodigo }})">{{ producto.ProductoNombre }}</p>
+		
+		{% set Categoria = producto.CategoriaCodigo.CategoriaCodigo %}
+		{% set MenuCont = producto.CategoriaCodigo.MenuCodigo.MenuCodigo %}
+		
+	{% endfor %}
+</nav>
+	
+	
+

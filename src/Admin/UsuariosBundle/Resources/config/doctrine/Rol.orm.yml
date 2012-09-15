@@ -1,0 +1,37 @@
+Admin\UsuariosBundle\Entity\Rol:
+  type: entity
+  table: adm_roles
+  fields:
+    rol_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: rol_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_roles 
+        allocationSize: 1
+        initialValue: 1
+        
+    rol_nombre:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+      column: rol_nombre
+    
+    rol_fechacreacion:
+      type: datetime
+      nullable: false
+      column: rol_fechacreacion
+        
+  manyToMany:
+    rolUsuarios: 
+      targetEntity: Admin\UsuariosBundle\Entity\Usuario
+      mappedBy: usuarioRoles
+        
+  lifecycleCallbacks: {  }
+
+

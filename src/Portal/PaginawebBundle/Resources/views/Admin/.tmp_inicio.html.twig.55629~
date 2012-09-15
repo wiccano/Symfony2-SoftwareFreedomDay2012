@@ -1,0 +1,93 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+<div id="admin_container">
+	<p>Sistema de Administración</p>
+	
+	<ul class="tabs">
+	    <li><a href="#tab1">Contacto</a></li>
+	    <li><a href="#tab2">Categorias</a></li>
+		<li><a href="#tab3">Productos</a></li>
+	</ul>
+	
+	<div class="tab_container">
+	    <div id="tab1" class="tab_content">
+	        <!--Content-->
+			<form id="Form_Contacto" name="Form_Contacto" method="post" {{ form_enctype(formContacto) }}>
+				<div style="display:none">{{ form_widget(formContacto._token) }}</div>
+				<h2 style="height:50px;">Esta es la información que aparece en Contacto</h2>
+				<dl>
+					
+					<dt><label for="contacto_email">Correo electroónico</label>
+			    	<dd>{{ form_widget(formContacto.contacto_email) }}</dd>
+					
+					<dt><label for="contacto_info">Otros detalles</label>
+			    	<dd>{{ form_widget(formContacto.contacto_info) }}</dd>
+					
+				</dl>
+				
+				<div>{{ form_rest(formContacto) }}</div>
+				<br>
+				<button type="submit" name="actualizar">Actualizar</button>
+			</form>
+			
+	    </div>
+	    <div id="tab2" class="tab_content">
+	       <!--Content-->
+		   <form id="Form_Categoria" name="Form_Categoria" method="post" {{ form_enctype(formCategoria) }}>
+				<div style="display:none">{{ form_widget(formCategoria._token) }}</div>
+				<h2 style="height:50px;">Esta es la información que aparece en Categorias</h2>
+				<dl>
+					
+					<dt><label for="categoria_nombre">Nombre de la categoria</label>
+			    	<dd>{{ form_widget(formCategoria.categoria_nombre) }}</dd>
+					
+					<dt><label for="categoria_descripcion">Otros detalles</label>
+			    	<dd>{{ form_widget(formCategoria.categoria_descripcion) }}</dd>
+					
+				</dl>
+				
+				<div>{{ form_rest(formCategoria) }}</div>
+				<br>
+				<button type="submit" name="actualizar">Actualizar</button>
+			</form>
+		</div>
+		<div id="tab3" class="tab_content">
+	       <!--Content-->
+		   <form id="Form_Categoria" name="Form_Categoria" method="post" {{ form_enctype(formProducto) }}>
+				<div style="display:none">{{ form_widget(formProducto._token) }}</div>
+				<h2 style="height:50px;">Esta es la información que aparece en Categorias</h2>
+				<dl>
+					
+					<dt><label for="producto_nombre">Nombre del Producto</label>
+			    	<dd>{{ form_widget(formProducto.producto_nombre) }}</dd>
+					
+					<dt><label for="categoria_codigo">Codigo de la categoria</label>
+			    	<dd>{{ form_widget(formProducto.categoria_codigo) }}</dd>
+					
+					<dt><label for="producto_descripcion">Descripcion del producto</label>
+			    	<dd>{{ form_widget(formProducto.producto_descripcion) }}</dd>
+										
+					<dt><label for="producto_imagen">Imagen del producto</label>
+			    	<dd>{{ form_widget(formProducto.producto_imagen) }}</dd>
+					
+					<dt><label for="producto_piepagina">Pie de pagina del producto</label>
+			    	<dd>{{ form_widget(formProducto.producto_piepagina) }}</dd>
+					
+				</dl>
+				
+				<div>{{ form_rest(formProducto) }}</div>
+				<br>
+				<button type="submit" name="actualizar">Actualizar</button>
+			</form>
+		</div>
+	</div>
+	
+		
+</div>
+{% endblock %}
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Admin:js_inicio.html.twig' with {} %}
+{% endblock %}

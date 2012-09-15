@@ -1,0 +1,151 @@
+ul,ol
+{ list-style:none; }
+
+h1,h2,h3,h4,h5,h6,pre,code
+{ font-size:1em; }
+
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd,figure,figcaption
+{ margin:0;
+  padding:0; }
+
+a img,:link img,:visited img,fieldset
+{ border:none; }
+
+address
+{ font-style:normal; }
+
+header,section,article,nav,footer,hgroup
+{ display:block; }
+
+mark
+{ background:transparent;
+  color:inherit; }
+
+#gradient header
+{ margin:0;
+  padding:0; }
+
+#fotosClientesCarouselContainer
+{ min-width:1000px;
+  /*-webkit-box-shadow:0 5px 7px #c4c4c4;
+  -moz-box-shadow:0 5px 7px #c4c4c4;
+  box-shadow:0 5px 7px #c4c4c4;*/
+  height:170px;
+  padding:20px 0;
+  background:#ffffff;
+  margin-top:40px;
+  /*border-bottom:1px solid #cecece;*/ }
+
+#fotosClientesCarouselContainer .stream_follow
+{ top:65px;
+  left:65px; }
+
+#fotosClientesCarouselContainer .stream_follow .follow_unfollow_stream
+{ width:24px;
+  height:23px;
+  background-size:100%; }
+
+#fotosClientesCarouselContainer .carousel
+{ float:left;
+  width:100%;
+  padding:0 50px;
+  margin-bottom:0; }
+
+#fotosClientesCarouselContainer .help_text
+{ float:right;
+  width:84px;
+  margin-top:10px; }
+
+#fotosClientesCarouselContainer .help_text h1
+{ color:#5c5c5c;
+  font:400 14px/1.5 "Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif; }
+
+#fotosClientesCarouselContainer .profile
+{ float:left;
+  border-right:solid 1px #ececec;
+  width:30%;
+  margin-right:25px; }
+
+#fotosClientesCarouselContainer .profile article
+{ position:relative;
+  float:left;
+  margin-right:15px; }
+
+#fotosClientesCarouselContainer .profile .details
+{ margin-left:80px; }
+
+#fotosClientesCarouselContainer .profile .details p
+{ font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-weight:400;
+  display:block; }
+
+#fotosClientesCarouselContainer .profile .details header
+{ padding:0;
+  margin:0;
+  margin-bottom:5px;
+  clear:right; }
+
+#fotosClientesCarouselContainer .profile .details header h1
+{ line-height:10px;
+  height:30px; }
+
+#fotosClientesCarouselContainer .profile .details header h1 a
+{ font-size:12px; }
+
+#fotosClientesCarouselContainer .carousel-inner
+{ height:190px;
+  overflow:hidden;
+  min-width:950px; }
+
+#fotosClientesCarouselContainer .carousel-inner .item
+{ width:100%;
+  height:90px; }
+
+#fotosClientesCarouselContainer .collection
+{ margin-top:5px; }
+
+#fotosClientesCarouselContainer .collection li
+{ float:left;
+  margin-right:10px; }
+
+#fotosClientesCarouselContainer .carousel-control.right
+{ background:url("../../images/arrow-right.png") 0 15px no-repeat;
+  position:absolute; }
+
+#fotosClientesCarouselContainer .carousel-control.left
+{ background:url("../../images/arrow-left.png") 0 15px no-repeat;
+  position:absolute; }
+
+#fotosClientesCarouselContainer .charitable
+{ 
+  width:95%;
+  margin-bottom:15px; }
+
+#fotosClientesCarouselContainer .charitable .title
+{ 
+  color:#d26b2d;
+  margin-right:5px; }
+
+#fotosClientesCarouselContainer .charitable .charity_name
+{ /*overflow:hidden;
+  text-overflow:ellipsis;*/
+  color:#5c5c5c;
+  white-space:nowrap;
+  height:13px; }
+
+#msg_navFotografias
+{ white-space:nowrap;
+  width:100%;
+  color:#5a5a5a;
+  background:#f4f4f4;
+  margin-bottom:0px;
+  font:400 14px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif;
+  float:left;
+  height:30px;
+  text-align:center;
+  text-valign:center;
+  margin-top:5px;
+  border-top:1px solid #cecece;
+  padding:5px 0px;
+  }
+  

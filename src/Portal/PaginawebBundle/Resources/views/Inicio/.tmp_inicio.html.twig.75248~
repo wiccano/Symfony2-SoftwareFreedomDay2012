@@ -1,0 +1,12 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+
+
+{% endblock %}
+
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Inicio:js_inicio.html.twig' with {} %}
+{% endblock %}

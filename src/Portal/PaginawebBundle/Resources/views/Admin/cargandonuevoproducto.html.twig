@@ -1,0 +1,310 @@
+<form id="Form_Producto" name="Form_Producto" method="post" {{ form_enctype(formProducto) }}>
+	<div style="display:none">{{ form_widget(formProducto._token) }}</div>
+	<div id="NewProductTitle" style="width:100%;"><h2 style="font-weight:bold; float:left;">Detalles del Producto</h2><span id="btn_backproducts">Ver productos</span></div>
+	<div id="FrmProducto_result"><br>
+		{% if MsgOk is defined %}
+			<p>{{ MsgOk | raw }}</p>
+		{% endif %}
+		{% if MsgError is defined %}
+			<p style="color:red;">{{ MsgError |raw }}</p>
+		{% endif %}
+	</div>
+	
+	<ul id="error-list">
+        {% if errors is defined %}
+            {% for error in errors %}
+                <li> {{ error.message | raw }}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+	
+	<fieldset>
+	<div>{{ form_widget(formProducto.producto_codigo) }}</div>
+	<figure>
+		<img id="ImageMisc" alt="" src="{{ asset('bundles/portalpaginaweb/images/placeholder.jpg') }}" width="170px" height="150px">
+	</figure>
+	<dl>	
+		<dt></dt>
+		
+    	<dd>{{ form_widget(formProducto.producto_codigo) }}</dd>
+			
+		<dt><label for="producto_nombre">Nombre del Producto</label></dt>
+    	<dd>{{ form_widget(formProducto.producto_nombre) }}</dd>
+    	
+    	<dt><label for="producto_nombre">Peso</label></dt>
+    	<dd>{{ form_widget(formProducto.producto_peso) }}</dd>
+		
+		<dt><label for="categoria_codigo">Categoría</label></dt>
+    	<dd>{{ form_widget(formProducto.categoria_codigo) }}</dd><br><br>
+					
+	</dl>
+	<fieldset>
+	
+	<div>{{ form_rest(formProducto) }}</div>
+	
+	<button type="submit" name="actualizar" id="btn_submitproduct">Actualizar Producto</button>
+	<button type="button" name="cargarimagen" id="btn_loadimage" rel="#imageload">Cargar Imagen</button>
+</form>
+
+
+	<article id="ImageList">
+		<br><p>Lista de Imagenes Asociadas al Producto</hp>
+		<div id="ImageListContainer">
+			<table id="ImageList_table" cellspacing="0">
+				<thead><tr>
+					<th>Nombre</th>
+					<th>Titulo</th>
+					<th>Texto</th>
+				</tr></thead>
+				<tbody>
+				<tr class="first">
+				{% for imagen in imagenes %}
+					<td onmouseover="mostrarImagenProducto('{{ imagen.ImagenNombre }}')">{{ imagen.ImagenNombre }}</td>
+					<td onmouseover="mostrarImagenProducto('{{ imagen.ImagenNombre }}')">{{ imagen.ImagenTitulo }}</td>
+					<td onmouseover="mostrarImagenProducto('{{ imagen.ImagenNombre }}')">{{ imagen.ImagenTexto | raw | nl2br }}</td>
+					<td onmouseover="mostrarImagenProducto('{{ imagen.ImagenNombre }}')" onclick="elimiarImagenProducto('{{ imagen.ImagenCodigo }}')">
+						<span style="cursor:pointer;">Eliminar</span>
+					</td>
+					</tr><tr>
+				{% endfor %}
+			</tr></tbody></table>
+		</div>
+	</article>
+
+
+
+<div class="modal" id="imageload" style="z-index: 99999">
+  
+  	<section id="ImageLoading">
+		<form id="Form_Imagen" name="Form_Imagen" method="post" {{ form_enctype(formImagen) }}>
+			
+			
+			
+		<p>Cargar Contenido e Imagenes al Producto</p>
+		<div id="FrmProductoImagen_result" style="position: absolute; width: 100%; background: #f1f1f1;"></div>
+		<fieldset>
+			<table style="width:100%;">
+				<tr>
+					<th style="width:400px; font-weight: bold;">Imagen del Producto</td>
+					<th style="width:*%; font-weight: bold;">Detalles del Producto</td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">
+						<div id="ImagePlaceLoad">
+							
+							<figure>
+								<img id="ImageIdent" alt="" src="{{ asset('bundles/portalpaginaweb/images/placeholder.jpg') }}" width="170px" height="150px">
+							</figure>
+							<div id="ImageName" style="color:blue; text-align: center;"></div>
+						</div>
+						<br><br>
+						<button type="submit" name="actualizar" id="upload" style="clear:both;">Cargar Imagen</button>
+						
+						<button type="submit" name="actualizar" id="btn_submitproduct" style="clear:both;">Guardar</button>
+					</td>
+					<td>
+						{{ form_widget(formImagen.imagen_titulo) }}<br><br>
+						{{ form_widget(formImagen.imagen_texto) }}
+					</td>
+				</tr>
+			</table>
+			<div style="display:none;">{{ form_rest(formImagen) }}</div>
+		</fieldset>
+		</form>
+	</section>
+  
+ 
+  <p>
+    Solo puede interactuar con los elementos de esta ventana emergente.
+    Para cerrar esta ventana puede usar la tecla ESC o el botón cerrar.
+  </p>
+ 
+  <!-- yes/no buttons -->
+  <p>
+    <button type="button" class="close"> Cerrar </button>
+  </p>
+</div>
+
+
+<script>
+	var triggers = $("#btn_loadimage").overlay({
+      mask: {
+        color: '#ebecff',
+        loadSpeed: 200,
+        opacity: 0.9
+      },
+      onLoad: function (){
+      	$('#FrmProductoImagen_result').html('');
+      	$('#formAddImagen_imagen_titulo').val('');
+      	$('#formAddImagen_imagen_texto').val('');
+      	$("#ImageIdent").attr('src', '{{ asset('bundles/portalpaginaweb/images/placeholder.jpg') }}');
+      	$("#ImageName").html('');
+      },
+      closeOnClick: false
+  });
+</script>
+
+
+
+
+
+
+<script>
+	$('#Form_Producto').submit(function( e ) {
+		$('#FrmProducto_result').html('');
+		$('#tab3_Preloader').show();
+		var producto_codigo = $("#formAddProducto_producto_codigo").val();
+		
+		$.ajax({
+            type: 'POST',
+            url: Routing.generate("PortalPaginawebBundle_formProducto", { producto_codigo: producto_codigo }),
+            data: $(this).serialize(),
+            success: function(data) {
+                var $tab3_content = $('#tab3_content').html('');
+				$tab3_content.html(data);
+				
+				
+				
+				$('#tab3_Preloader').hide();
+				
+				$('#formAddProducto_categoria_codigo').dropkick();
+				$('#formAddProducto_tipoproducto_codigo').dropkick();
+				$('#admin_container #admincontent').css('width','0px');
+				
+				$('#tab3_content').slideDown(1000);
+				
+				var $BookAjax = $('div#book').html('');
+			    $.ajax({
+			        url : Routing.generate("PortalPaginawebBundle_cargandomenu", { 'Tipomenu' : 0 }),
+			        success : function (data){
+			            // Aquí desaparece la imagen ya que estamos reemplazando todo el HTML del contenido de la div.
+			            $BookAjax.html(data);
+			        }
+			    });
+				
+            },
+			error: function(data){
+				alert('Ha ocurrido un error inesperado. Recargue la página e intente de nuevo o consulte a los desarrolladores del sistema');
+			}
+        })
+		        
+        e.preventDefault();
+    });
+	
+	
+	btn_backproducts = {
+		$btn_backproduct: function(){
+			return $("#btn_backproducts");
+		},
+	},
+	btn_backproducts.$btn_backproduct().on("click", function( e ){
+		
+		CargarProductos(0);
+		
+		e.preventDefault();
+	});
+	
+	
+	$('#Form_Imagen').submit(function( e ) {
+		$('#FrmProducto_result').html('');
+		$('#tab3_Preloader').show();
+		
+		var producto_codigo = $("#formAddProducto_producto_codigo").val();
+		
+		$.ajax({
+            type: 'POST',
+            url: Routing.generate("PortalPaginawebBundle_formImagen", { producto_codigo: producto_codigo }),
+            data: $(this).serialize(),
+            success: function(data) {
+                
+				alert(data);
+				$('#tab3_Preloader').hide();
+				$("#btn_loadimage").overlay().close();
+				var producto_codigo = $("#formAddProducto_producto_codigo").val();
+				
+						$.ajax({
+					        url : Routing.generate("PortalPaginawebBundle_cargandonuevoproducto", { producto_codigo: producto_codigo }),
+							success : function (data){
+			
+								
+								var $tab3_content = $('#tab3_content').html('');
+								$tab3_content.html(data);
+								
+								
+								
+								
+								
+								$('#tab3_Preloader').hide();
+								
+								$('#formAddProducto_categoria_codigo').dropkick();
+								$('#formAddProducto_tipoproducto_codigo').dropkick();
+								$('#admin_container #admincontent').css('width','0px');
+								
+								$('#tab3_content').slideDown(1000);
+								
+								
+					       },	
+						   error: function(data){
+								alert('Ha ocurrido un error inesperado. Recargue la página e intente de nuevo o consulte a los desarrolladores del sistema');
+						   }
+			    		})
+
+            },
+			error: function(data){
+				alert('Ha ocurrido un error inesperado. Recargue la página e intente de nuevo o consulte a los desarrolladores del sistema');
+			}
+        })
+		        
+        e.preventDefault();
+    });
+	
+	
+	
+
+	var button = $('#upload'), interval;
+    new AjaxUpload(button,{
+        action: Routing.generate("PortalPaginawebBundle_addImagen"),
+        name: 'image',
+        responseType: false,
+        onSubmit : function(file, ext){
+			
+			var producto_codigo = $("#formAddProducto_producto_codigo").val();
+			
+			if(producto_codigo == 0) {
+				$('#FrmProductoImagen_result').html('<br><p>Debe crear el Producto antes de cargar contenido a él</p>');
+				$('#FrmProducto_result').html('<br><p>Debe crear el Producto antes de cargar contenido a él</p>');
+				return false;
+			}
+			
+            // cambiar el texto del boton cuando se selecicione la imagen
+            button.text('Cargando');
+            // desabilitar el boton
+                this.disable();
+ 
+                interval = window.setInterval(function(){
+                    var text = button.text();
+                	if (text.length < 11){
+                		button.text(text + '.');
+            	} else {
+                	button.text('Cargando');
+            	}
+        	}, 200);
+    	},
+        onComplete: function(file, response){
+            button.text('Cargar Imagen');
+ 
+            window.clearInterval(interval);
+ 
+            // Habilitar boton otra vez
+            this.enable();
+ 
+            // Añadiendo las imagenes a mi lista
+			$("#ImageIdent").attr('src', '{{ asset('uploads/documents/') }}' + file);
+			$("#ImageName").html(file);
+			$("#formAddImagen_imagen_nombre").attr('value', file);
+			
+			$('#FrmProducto_result').html(response);
+        }
+    });
+	
+</script>

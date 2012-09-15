@@ -1,0 +1,9 @@
+parameters:
+  admin_usuarios.usuarios.class: Admin\UsuariosBundle\Services\UsuariosService
+
+services:
+    admin_usuarios.usuarios:
+      class:  %admin_usuarios.usuarios.class%
+      arguments:
+        - "@service_container"
+        - "@doctrine.orm.entity_manager"

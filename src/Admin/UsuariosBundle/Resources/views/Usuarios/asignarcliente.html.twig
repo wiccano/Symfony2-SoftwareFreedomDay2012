@@ -1,0 +1,29 @@
+{% extends 'AdminUsuariosBundle::layout_usuarios.html.twig' %}
+{% block subcontent %}
+<section>
+	<div id="responseUsuarioCliente" align="center"></div>
+	<form  id="formUsuarioCliente" method="post" {{ form_enctype(form) }}>  
+		<div align="center">
+			<table>
+				<tr>
+					<td>Usuario</td>
+ 					<td>{{ form_widget(form.usuario_codigo) }}</td>					
+				</tr>
+				<tr>
+					<td>Cliente</td>
+ 					<td>{{ form_widget(form.cliente_codigo) }}</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2">
+						<button type="button" onclick="addUsuarioCliente()">{{ translate('Enviar')  | raw }}</button>
+					</td>
+				</tr>
+			</table>
+			{{ form_rest(form) }}		
+		</div>
+		<div id="gridUsuarioClientes" align="center">
+			{{ datagrid.show | raw }}
+		</div>
+	</form>
+</section>
+{% endblock %}

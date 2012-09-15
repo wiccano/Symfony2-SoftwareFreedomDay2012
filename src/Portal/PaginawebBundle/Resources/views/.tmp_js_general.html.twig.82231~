@@ -1,0 +1,152 @@
+<!-- ///*** SPECIAL SCRIPTS GENERAL PAGE-*/// -->
+<script type="text/javascript">
+ $(document).ready(function() {
+  
+	var nice = $("html").niceScroll();  // The document page (body)
+    $("#book").niceScroll({cursorborder:"20",cursorcolor:"#cccccc",boxzoom:false, autohidemode:false, cursorwidth:"8px", touchbehavior:false}); // First scrollable DIV
+    
+    btcustom = {
+		$btn_yellow: function(){
+			return $("#custompage  #custompage_img_yellow");
+		},
+		$btn_green: function(){
+			return $("#custompage  #custompage_img_green");
+		},
+		$btn_cyan: function(){
+			return $("#custompage  #custompage_img_cyan");
+		},
+		$btn_pink: function(){
+			return $("#custompage  #custompage_img_pink");
+		},
+		$btn_black: function(){
+			return $("#custompage  #custompage_img_black");
+		},
+		
+		$slide_book: function(){
+			return $("#menu_slide");
+		},
+		$showslide: function(){
+			book.$slide_book().slideDown('slow');
+		},
+		$hideslide: function(){
+			book.$slide_book().slideUp(200);
+		},
+		$toggleslide: function(){
+			if(book.$slide_book().is(":visible")) {
+				book.$hideslide();
+			} else {
+				book.$showslide();
+			}
+			return false; 
+		},
+	},
+	
+	btcustom.$btn_yellow().on("click", function(){
+		$("#wrapper").css({background: "url({{ asset('bundles/portalpaginaweb/images/fondo_yellow.png') }}) repeat" });
+		$("#custompage_img_yellow").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_yellow_x.jpg') }}) no-repeat" });
+		$("#custompage_img_green").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_green.jpg') }}) no-repeat" });
+		$("#custompage_img_cyan").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_cyan.jpg') }}) no-repeat" });
+		$("#custompage_img_pink").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_pink.jpg') }}) no-repeat" });
+		$("#custompage_img_black").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_black.jpg') }}) no-repeat" });
+	});
+	btcustom.$btn_green().on("click", function(){
+		$("#wrapper").css({background: "url({{ asset('bundles/portalpaginaweb/images/fondo_green.png') }}) repeat" });
+		$("#custompage_img_yellow").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_yellow.jpg') }}) no-repeat" });
+		$("#custompage_img_green").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_green_x.jpg') }}) no-repeat" });
+		$("#custompage_img_cyan").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_cyan.jpg') }}) no-repeat" });
+		$("#custompage_img_pink").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_pink.jpg') }}) no-repeat" });
+		$("#custompage_img_black").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_black.jpg') }}) no-repeat" });
+	});
+	btcustom.$btn_cyan().on("click", function(){
+		$("#wrapper").css({background: "url({{ asset('bundles/portalpaginaweb/images/fondo_cyan.png') }}) repeat" });
+		$("#custompage_img_yellow").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_yellow.jpg') }}) no-repeat" });
+		$("#custompage_img_green").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_green.jpg') }}) no-repeat" });
+		$("#custompage_img_cyan").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_cyan_x.jpg') }}) no-repeat" });
+		$("#custompage_img_pink").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_pink.jpg') }}) no-repeat" });
+		$("#custompage_img_black").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_black.jpg') }}) no-repeat" });
+	});
+	btcustom.$btn_pink().on("click", function(){
+		$("#wrapper").css({background: "url({{ asset('bundles/portalpaginaweb/images/fondo_pink.png') }}) repeat" });
+		$("#custompage_img_yellow").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_yellow.jpg') }}) no-repeat" });
+		$("#custompage_img_green").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_green.jpg') }}) no-repeat" });
+		$("#custompage_img_cyan").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_cyan.jpg') }}) no-repeat" });
+		$("#custompage_img_pink").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_pink_x.jpg') }}) no-repeat" });
+		$("#custompage_img_black").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_black.jpg') }}) no-repeat" });
+	});
+	btcustom.$btn_black().on("click", function(){
+		$("#wrapper").css({background: "url({{ asset('bundles/portalpaginaweb/images/fondo.png') }}) repeat" });
+		$("#custompage_img_yellow").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_yellow.jpg') }}) no-repeat" });
+		$("#custompage_img_green").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_green.jpg') }}) no-repeat" });
+		$("#custompage_img_cyan").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_cyan.jpg') }}) no-repeat" });
+		$("#custompage_img_pink").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_pink.jpg') }}) no-repeat" });
+		$("#custompage_img_black").css({background: "url({{ asset('bundles/portalpaginaweb/images/btn_black_x.jpg') }}) no-repeat" });
+	});
+	
+	
+	btcontact = {
+		$btn_contact: function(){
+			return $("#nav_up  #menu_up #btn_contact");
+		},
+		$info_contact: function(){
+			return $("#nav_up  #menu_up #contact");
+		},
+		$toggleContact: function() {
+			btcontact.$info_contact().toggle();	
+		}
+		
+	},
+	btcontact.$btn_contact().on("mouseover", function(){
+		btcontact.$toggleContact();
+		if (bthv.$info_download().is(":visible")) {
+			bthv.$toggleDownload();
+		}
+		return false; 
+	});
+	
+	bthv = {
+		$btn_download: function(){
+			return $("#nav_up  #menu_up #btn_Information");
+		},
+		$info_download: function(){
+			return $("#nav_up  #menu_up #download");
+		},
+		
+		$toggleDownload: function() {
+			bthv.$info_download().toggle();	
+		}
+		
+	},
+	bthv.$btn_download().on("mouseover", function(){
+		bthv.$toggleDownload();
+		if (btcontact.$info_contact().is(":visible")) {
+			btcontact.$toggleContact();
+		}
+		return false; 
+	});
+	
+	
+	btadmin = {
+		$btn_admin: function(){
+			return $("#nav_down  #menu_down #btn_admin");
+		},
+	},
+	btadmin.$btn_admin().on("click", function(){
+		var url = Routing.generate("PortalPaginawebBundle_admininicio");
+		$(location).attr('href', url);
+		return false; 
+	});
+	
+	
+	var $ContactoAjax = $('div#contact').html('...');
+    $.ajax({
+        url : Routing.generate("PortalPaginawebBundle_cargandocontacto"),
+        success : function (data){
+            // Aquí desaparece la imagen ya que estamos reemplazando todo el HTML del contenido de la div.
+            $ContactoAjax.html(data);
+        }
+    });
+	
+	
+  });
+</script>
+

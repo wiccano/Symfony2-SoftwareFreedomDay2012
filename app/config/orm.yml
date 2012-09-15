@@ -1,0 +1,6 @@
+services:
+    switrans.orm:
+        alias: doctrine.orm.entity_manager 
+    
+    switrans.dbal:
+        alias: database_connection  

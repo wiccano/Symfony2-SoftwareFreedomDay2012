@@ -1,0 +1,14 @@
+# messages.es.yml 
+Logout: Salir 
+Loading: Cargando 
+
+
+# Toxty_Datagrid
+cantidadRegistros.Text: Se encontraron %cantidad% %labelregistros% en total.
+registrosPorPagina.Text: %labelregistros% por página
+noRegistros.Text: No se encontraron %labelregistros%
+Remove: Eliminar
+Page: Página 
+of: de
+Display: Mostrar
+Order by: Ordernar por

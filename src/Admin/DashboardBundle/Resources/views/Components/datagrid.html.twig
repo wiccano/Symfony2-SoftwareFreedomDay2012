@@ -1,0 +1,211 @@
+<div class="components-loader" id="loader_{{ grid.Id }}"></div>
+<article id="{{ grid.Class }}">
+		{% if grid.WithForm %} 	
+			<form id="{{ grid.FormName }}" name="{{ grid.FormName }}" jsId="{{ grid.FormName }}" method="post" {{ form_enctype(form) }}>
+		{% endif %}
+	
+		{# - Form Datagrid - #}
+		<div>{{ form_widget(form) }}</div>	
+		
+		 
+	  	{# ---- paginable header ---- #}		  	
+	  	{% if grid.Paginable %} 
+			{{ _self.paguinable(grid, 'header') }}	
+		{% endif %}
+					
+	  	
+	  	{# ---- data gridTable ---- #}		
+		<section class="{{ grid.Class }}_content">
+			<header>
+				{# ---- HeaderContent ---- #}
+				{% if grid.renderHeaderContent %}	
+					<div id="{{ grid.Class }}_header">
+						<h2>{{ grid.renderHeaderContent | raw }}</h2>
+					</div>
+				{% endif %}
+			
+				{# ---- CountHeader ---- #}
+				{% if grid.CountHeader %}
+					<div id="{{ grid.Class }}_itemcountMsg" colspan="{{ grid.Headers | length }}">
+						{{ 'cantidadRegistros.Text' | trans({'%cantidad%': grid.GridCount, '%labelregistros%': grid.LabelRegistros }) | raw }}
+					</div> 
+				{% endif %}
+							
+				{# ---- OrderDirection ---- #}
+				{% if grid.OrderDirection == 'ASC' %} 
+					{% set orderDirection = 'DESC' %}
+				{% elseif grid.OrderDirection == 'DESC' %}
+				    {% set orderDirection = 'ASC' %}
+				{% else %}
+				    {% set orderDirection = 'ASC' %}
+				{% endif %}				
+			</header>
+
+			<div id="{{ grid.Class }}_tableContainer">
+			
+				<table id="{{ grid.Class }}_table" style="width:100%;">
+				
+					{# ---- headers ---- #}
+				
+					{% if grid.Delete %}<div id="{{ grid.Class }}_deleteGrid"></div>{% endif %}
+					{% if grid.Numerable %}<div id="{{ grid.Class }}_listedData"></div>{% endif %}
+								
+					<tr class="{{ grid.Class }}_titles" id="{{ grid.Class }}_titlesFixed">
+						{% for key, value in grid.Headers %}		
+
+							{% if key ==  'enumerable' %}
+								<th style="width:25px;" class="{{ grid.Class }}_titles"></th>
+							{% endif %}
+
+							{% if key !=  'enumerable' %}
+								
+								{% if 'width' in value | keys %} 		
+									<th class="{{ grid.Class }}_titles" style=" width: {{ value.width }};">				
+								{% else %}	
+									<th class="{{ grid.Class }}_titles" nowrap="nowrap">
+								{% endif %}	
+
+								{% if grid.Sortable %} 
+									<a href="#" onclick="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', {{ grid.Page }}, {{ grid.Tamano }}, '{{ key }}', '{{ orderDirection }}' )" 
+										title="{{ translate('Ordernar por') | raw }} {{ translate( value.text ) | lower }}">{{ translate( value.text ) | upper }}</a>
+								{% else %}
+									{{ translate( value.text ) | upper }} 
+								{% endif %}												
+								</th>	
+																 
+							{% endif %}		
+												
+						{% endfor %}
+					</tr>
+					
+					{# ---- data ---- #}
+					{% set ctrData = 0 %}			
+					{% for item in grid.Data %}
+						<tr>
+						{% if grid.Delete %} 	
+							<td align="center"> <img title="{{ translate('Eliminar') }}" width="14px" height="14px" style="cursor: pointer;" 
+								src="{{ asset('bundles/admindashboard/images/components/remove.png') }}" 
+								onClick="dg_delitem('{{ grid.Url }}', '{{ grid.UrlDelete }}', '{{ grid.Id }}', '{{ grid.FormName }}', '{{ item[grid.PrimaryKey] }}')"> </td>	
+						{% endif %}
+											  			
+						{% for key, value in grid.Headers %}
+											
+							{% set autoEvent = '' %}
+							{% if '_event' in value | keys %}
+							    {% for keyEvent, valueEvent in value._event %}					    	 
+									{% set autoEvent = valueEvent._func ~ '('  %}
+										{% set stringParams = '' %}
+										{% set coma = '' %}
+										{% for keyEventParams, valueEventParams in valueEvent._params %}
+											
+											{% if valueEventParams in item | keys %}
+												{% set valueParam = item[valueEventParams] %} 	
+											{% else %} 									
+												{% set valueParam = valueEventParams %}									
+											{% endif %}
+											{% set stringParams = stringParams ~ coma ~ "'" ~ valueParam ~ "'"  %}
+											{% set coma = ',' %}	
+										{% endfor %}											
+									{% set autoEvent = autoEvent ~ stringParams    ~  ');'  %}
+								{% endfor %}
+							{% endif %}
+							
+							{# ---- align ---- #}
+							{% if 'align' in value | keys %} {% set setAling = value.align %}
+							{% else %} {% set setAling = 'left' %} {% endif %}
+		
+							{# ---- nowrap ---- #}
+							{% if 'nowrap' in value | keys %} {% set setNowrap = 'nowrap = ' ~ value.nowrap ~ '' %}
+							{% else %} {% set setNowrap = '' %} {% endif %}							
+									
+							{% if key == 'enumerable' %}
+								{% if grid.Numerable %} 
+									{% set ctrData = ctrData + 1 %}
+										<td align="center">	
+										{% if autoEvent %}
+											<a href="#" {{ autoEvent }}>{{ ctrData }}</a>
+										{% else %} {{ ctrData }} {% endif %}
+										</td>
+								{% endif %}
+							{% else %}						
+								<td align="{{ setAling }}" {{ setNowrap }} {{ autoEvent }}> 							
+									{% if 'type' in value | keys %} 						
+										{% if value.type == 'mails' %}
+											{{ grid.renderCell(key,item) | replace({',': ' '}) }}
+										{% elseif value.type == 'utf8_encoding' %}
+											{{ utf8_encoding(grid.renderCell(key,item)) }}
+										{% else %}	
+											{{ grid.renderCell(key,item) | raw }}	
+										{% endif %}
+									{% else %}	
+										{{ grid.renderCell(key,item) | raw }}
+									{% endif %}	
+								</td> 									
+							{% endif %}			
+							
+						{% endfor %}
+					</tr>
+					{% else %}
+				    	<tr><td colspan="{{ grid.Headers | length }}">{{ 'noRegistros.Text' | trans({ '%labelregistros%': grid.LabelRegistros }) | raw }}</td></tr> 
+					{% endfor %}
+				</table>
+		</div>	
+				
+				
+			</div>
+		</div><!-- End Container data-->
+		
+		{# ---- paginable footer ---- #}
+		{% if grid.PaginableFooter %}			
+			{{ _self.paguinable(grid, 'footer') }}
+		{% endif %}
+	
+		{% if grid.WithForm %} 		
+			</form>
+		{% endif %}
+
+</article>
+
+{# ---- Macro paguinable ---- #}	
+{% macro paguinable(grid, type) %}
+
+	
+	<section id="{{ grid.Class }}_paginator">
+		<fieldset>	
+			
+	  		{{ translate('Página número: ') | raw }}
+			
+			<select id="comboboxpage_{{ type }}" style="width: 50px;" name="SelectPage_{{ grid.Id }}" onchange="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', this.value, {{ grid.Tamano }}, '{{ grid.OrderBy }}', '{{ grid.OrderDirection }}')">
+	            {% for i in range(1, grid.PageCount) %}
+	            	{% if i == grid.Page %}
+			            <option value="{{ i }}" selected="selected">{{ i }}</option>
+			        {% else %}
+			            <option value="{{ i }}">{{ i }}</option>
+			        {% endif %}
+				{% endfor %}					
+	  		</select>
+	  		
+	  		{{ translate('de') | raw }} {{ grid.PageCount }}
+	  		
+	  		{% if grid.PageCount > 1 %}
+				<button id="beginning_{{ type }}" type="button" {% if grid.Page <= 1 %} disabled="disabled" {% endif %} onclick="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', 1, {{ grid.Tamano }}, '{{ grid.OrderBy }}', '{{ grid.OrderDirection }}' )"> << </button>				
+				<button id="rewind_{{ type }}" type="button" {% if grid.Page <= 1 %} disabled="disabled" {% endif %} onclick="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', {{ grid.Page-1 }}, {{ grid.Tamano }}, '{{ grid.OrderBy }}', '{{ grid.OrderDirection }}')"> < </button>	
+				<button id="forward_{{ type }}" type="button" {% if grid.Page >= grid.PageCount %} disabled="disabled" {% endif %} onclick="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', {{ grid.Page+1 }}, {{ grid.Tamano }}, '{{ grid.OrderBy }}', '{{ grid.OrderDirection }}')"> > </button>
+				<button id="end_{{ type }}" type="button" {% if grid.Page >= grid.PageCount %} disabled="disabled" {% endif %} onclick="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', {{ grid.PageCount }}, {{ grid.Tamano }}, '{{ grid.OrderBy }}', '{{ grid.OrderDirection }}')"> >> </button>
+			{% endif %}
+			
+			{{ translate('Mostrando') | raw }}
+			<select id="comboboxperpage_{{ type }}" style="width: 50px;" name="SelectTamano_{{ grid.Id }}" onchange="dg_send('{{ grid.Url }}', '{{ grid.Id }}', '{{ grid.FormName }}', 1, this.value, '{{ grid.OrderBy }}', '{{ grid.OrderDirection }}')">					
+				{% for key, value in grid.perPage %}
+	            	{% if key == grid.Tamano %}
+			            <option value="{{ key }}" selected="selected">{{ value }}</option>
+			        {% else %}
+			            <option value="{{ key }}">{{ value }}</option>
+			        {% endif %}
+				{% endfor %}
+			 </select>
+			 {{ 'registrosPorPagina.Text' | trans({ '%labelregistros%': grid.LabelRegistros }) | raw }}	
+
+		</fieldset>
+	</section>		
+{% endmacro %}

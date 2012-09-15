@@ -1,0 +1,44 @@
+<section id="AdminProductList">
+	<header>
+		<h2>Seleccione una categoria para filtrar la tabla de Productos</h2>
+		<br>
+		<select name="selectCategory" id="selectCategory">
+			<option value="0">TODAS LAS CATEGORIAS</option>
+			{% for categoria in categorias %}
+				{% if( categoria_codigo > 0 and (categoria_codigo == categoria.CategoriaCodigo )) %}
+					<option value="{{ categoria.CategoriaCodigo }}" selected>{{ categoria.CategoriaNombre }}</option>
+				{% else %}	
+					<option value="{{ categoria.CategoriaCodigo }}">{{ categoria.CategoriaNombre }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		<button name="btn_newproduct" type="button" id="btn_newproduct" style="margin-left:15px;">Nuevo Producto</button>
+	</header>
+	<br>
+	<article id="ProductList">
+		<p>Lista de Productos</hp>
+		<div id="ProductListContainer">
+			<table id="ProductList_table" cellspacing="0">
+				<thead><tr>
+					<th>Nombre</th>
+					<th>Tipo</th>
+					<th>Peso</th>
+				</tr></thead>
+				<tbody>
+				<tr class="first">
+				{% for producto in productos %}
+					<td onclick="dobleclickProducto({{ producto.ProductoCodigo}})">
+						{{ producto.ProductoNombre}}
+					</td>
+					<td onclick="dobleclickProducto({{ producto.ProductoCodigo}})">
+						{{ producto.CategoriaCodigo.CategoriaNombre}}
+					</td>
+					<td onclick="dobleclickProducto({{ producto.ProductoCodigo}})">
+						{{ producto.ProductoPeso}}
+					</td>
+					</tr><tr>
+				{% endfor %}
+			</tr></tbody></table>
+		</div>
+	</article>
+</section>

@@ -1,0 +1,25 @@
+AdminUsuariosBundle:
+    resource: "@AdminUsuariosBundle/Resources/config/routing.yml"
+    prefix:  /
+
+AdminUsuariosBundle_Json:
+    resource: "@AdminUsuariosBundle/Resources/config/routing_json.yml"
+    
+AdminSeguridadBundle:
+    resource: "@AdminSeguridadBundle/Resources/config/routing.yml"
+    prefix:  /
+    
+AdminDashboardBundle:
+    resource: "@AdminDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+PortalPaginawebBundle_inicio:
+    resource: "@PortalPaginawebBundle/Resources/config/routing_inicio.yml"
+    prefix:   /
+    
+PortalPaginawebBundle_admin:
+    resource: "@PortalPaginawebBundle/Resources/config/routing_admin.yml"
+    prefix:   /

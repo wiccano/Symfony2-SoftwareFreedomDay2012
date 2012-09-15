@@ -1,0 +1,15 @@
+# Admin/UsuariosBundle/Resources/config/validation.yml
+Admin\UsuariosBundle\Entity\Usuario:
+    properties:
+        usuario_login:
+            - NotBlank: 
+                message: Cuenta de usuario es requerida 
+        usuario_nombre:
+            - NotBlank: 
+                message: Nombre de usuario es requerido
+        usuario_email:
+            - NotBlank: 
+                message: Email de usuario es requerido
+            - Regex:
+                pattern: "/[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/"
+                message: Email de usuario es invalido

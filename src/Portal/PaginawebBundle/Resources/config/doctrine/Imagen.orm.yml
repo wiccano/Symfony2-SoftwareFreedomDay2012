@@ -1,0 +1,52 @@
+Portal\PaginawebBundle\Entity\Imagen:
+  type: entity
+  table: imagenes
+  repositoryClass: Portal\PaginawebBundle\Entity\ImagenRepository
+  fields:
+    imagen_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: imagen_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_imagen_codigo
+        allocationSize: 1
+        initialValue: 1
+  
+    imagen_nombre:
+      type: string
+      length: 255
+      unique: true
+      fixed: false
+      nullable: false
+      column: imagen_nombre
+    
+    imagen_texto:
+      type: text
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen_texto
+      
+    imagen_titulo:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen_titulo
+      
+  manyToOne:
+    producto_codigo:
+      targetEntity: Producto
+      joinColumn:
+        nullable: false
+        name: producto_codigo
+        referencedColumnName: producto_codigo
+        
+    
+      
+  lifecycleCallbacks: {  }

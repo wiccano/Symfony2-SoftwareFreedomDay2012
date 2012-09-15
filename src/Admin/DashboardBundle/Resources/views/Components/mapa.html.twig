@@ -1,0 +1,56 @@
+<section> 			
+	<header>
+		<form method="POST" id="Form_{{ mapa.Id }}" name="Form_{{ mapa.Id }}" {{ form_enctype(form) }}>
+			<fieldset>
+				{{ form_widget(form) }}
+			</fieldset>	
+		</form>
+	</header>
+		
+	<article>	
+		<div id="content_{{ mapa.Id }}" class="item rounded dark" style="width: {{ mapa.Width }}{{ mapa.Measurement }};"> 
+			<div class="components-loader" id="loader_{{ mapa.Id }}"></div>			
+			<div class="mapcontroller">
+				{% if mapa.ShowReloadedButton == 1 %} 
+					<button id="reload_{{ mapa.Id }}" type="button">
+						{{ translate('Recargar')  | raw }}
+					</button>
+				{% endif %}
+	
+				{% if mapa.Reloaded == 1 %} 
+					<button id="pause_{{ mapa.Id }}" type="button"></button>
+				{% endif %}
+				
+				{% if mapa.Type == 'P' and mapa.ShowComboPoints == 1 %} 
+					<div id="divcombo_points_{{ mapa.Id }}" class="combo_poins"></div>
+				{% endif %}
+			
+				{% if mapa.Headerinpopup == 1 %} 
+					<button id="header_{{ mapa.Id }}" type="button">Ver Info</button>
+					<div id="map_info_{{ mapa.Id }}" class="map_info">
+						{{ mapa.contentheader | raw }}	
+					</div>
+				{% endif %}
+			</div>
+			<div class="map rounded" id="mapa_{{ mapa.Id }}" style="height: {{ mapa.Height }}px;"></div>
+		</div>
+	</article>	
+</section>
+
+<script>
+	$(function () 
+	{
+		mapGenerate
+		({ 	
+			id: '{{ mapa.Id }}',
+			url: '{{ mapa.UrlId }}',		
+			type: '{{ mapa.Type }}',
+			showcrumbs: '{{ mapa.Showcrumbs }}',
+			showcombopoints: '{{ mapa.ShowComboPoints }}',
+			headerinpopup: '{{ mapa.Headerinpopup }}',			
+			showreloadedbutton: '{{ mapa.ShowReloadedButton }}',
+			reloaded: '{{ mapa.Reloaded }}',
+			miliseconds: '{{ mapa.MiliSeconds }}'  
+		});
+	});
+</script>

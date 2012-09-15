@@ -1,0 +1,59 @@
+<!-- ///*** SPECIAL SCRIPTS GENERAL PAGE-*/// -->
+<script type="text/javascript">
+var lang, email;
+$(document).ready(function() { 
+	lang = {
+		$langespanol: function () {
+			return $("#lang #espanol_langselect")
+		},
+		$langingles: function () {
+			return $("#lang #ingles_langselect")
+		},
+		toggleLangEspanol: function () {
+			var url = Routing.generate("PortalPaginawebBundle_inicio", { "_locale": "es"});
+			$(location).attr('href',url);
+			return false; // retornando false para evitar # del href 
+		},
+		toggleLangIngles: function () {
+			var url = Routing.generate("PortalPaginawebBundle_inicio", { "_locale": "en"});
+			$(location).attr('href',url);
+			return false; // retornando false para evitar # del href 
+		}
+	},
+	lang.$langespanol().on("click", function () {	
+	    return lang.toggleLangEspanol();
+	}),
+	lang.$langingles().on("click", function () {	
+	    return lang.toggleLangIngles();
+	});
+
+	email = {
+		$emailselect: function () {
+			return $("#email #emailselect")
+		},
+		openEmail: function () {
+			window.open("http://webmail.mct.com.co/", '_blank');;
+			return false; // retornando false para evitar # del href 
+		}
+	},
+	email.$emailselect().on("click", function () {	
+	    return email.openEmail();
+	});
+
+	links = {
+		$services_link: function () {
+			return $("#services_link")
+		},
+		$compania_link: function () {
+			return $("#compania_link")
+		},
+	},
+	links.$services_link().on("click", function () {	
+	    return false;
+	});
+	links.$compania_link().on("click", function () {	
+	    return false;
+	});			   
+});
+</script>
+

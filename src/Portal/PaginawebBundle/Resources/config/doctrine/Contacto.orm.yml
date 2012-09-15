@@ -1,0 +1,35 @@
+Portal\PaginawebBundle\Entity\Contacto:
+  type: entity
+  table: contacto
+  repositoryClass: Portal\PaginawebBundle\Entity\ContactoRepository
+  fields:
+    contacto_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: contacto_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_contacto
+        allocationSize: 1
+        initialValue: 1
+  
+    contacto_email:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: contacto_email
+    
+    contacto_info:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: contacto_info
+    
+  lifecycleCallbacks: {  }

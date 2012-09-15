@@ -1,0 +1,19 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+<div id="home_image">
+	
+</div>
+<div id="home_text">
+	Opera (English plural: operas; Italian plural: opere) is an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house, accompanied by an orchestra or smaller musical ensemble.
+Opera is part of the Western s an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house,
+</div>
+	
+
+{% endblock %}
+
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Inicio:js_inicio.html.twig' with {} %}
+{% endblock %}

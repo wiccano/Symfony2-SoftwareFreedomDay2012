@@ -1,0 +1,31 @@
+<!-- scripts concatenated and minified via build script -->
+<script src="{{ asset('bundles/portalpaginaweb/js/plugins.js') }}"></script>
+<script src="{{ asset('bundles/portalpaginaweb/js/libs/slides.min.jquery.js') }}"></script>
+<script src="{{ asset('bundles/portalpaginaweb/js/script.js') }}"></script>
+
+
+<!-- ///*** SPECIAL SCRIPTS ONLY IN THIS -HOME PAGE-*/// -->
+ <script type="text/javascript">
+$(document).ready(function()
+{
+	$(".tab_content").hide();
+	$("ul.tabs li:first").addClass("active").show();
+	$(".tab_content:first").show();
+
+	$("ul.tabs li").click(function()
+       {
+		$("ul.tabs li").removeClass("active");
+		$(this).addClass("active");
+		$(".tab_content").hide();
+
+		var activeTab = $(this).find("a").attr("href");
+		$(activeTab).fadeIn();
+		return false;
+	});
+});
+</script>
+
+<![if !IE]>
+
+<![endif]>
+<!-- end scripts -->

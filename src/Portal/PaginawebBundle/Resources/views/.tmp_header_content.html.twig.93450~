@@ -1,0 +1,20 @@
+<!--LOGO Ileana-->
+<div id="logo">
+
+</div>
+
+<!-- START THE NAVIGATION MENU -->
+<nav id="nav">
+ <div id="menu">
+ 	<span><a id="btn_aboutme">ACERCA</a></span>
+	<div class="menu_book">
+		<span id="btn_book"><a>PORTAFOLIO</a></span>
+	</div>
+	<div class="menu_book">
+	<span id="btn_abautme"><a>CONTACTO</a></span>
+	</div>
+ </div>
+</nav> 
+ 
+<!--END HEADER-->
+<div id="menu_slide" style="display:none;"></div>

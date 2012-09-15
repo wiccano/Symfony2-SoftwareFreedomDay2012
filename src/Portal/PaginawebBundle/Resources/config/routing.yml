@@ -1,0 +1,181 @@
+PortalPaginawebBundle_raiz:
+    pattern:  /   
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:raiz }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_inicio:
+    pattern:  /{_locale}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:inicio }
+    options:
+        expose: true
+    requirements:
+        _locale: es|en
+        
+PortalPaginawebBundle_espacio:
+    pattern:  /espacio  
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:espacio }
+    options:
+        expose: true
+ 
+PortalPaginawebBundle_mobiliario:
+    pattern:  /mobiliario   
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:mobiliario }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_prensa:
+    pattern:  /prensa   
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:prensa }
+    options:
+        expose: true 
+        
+PortalPaginawebBundle_admin:
+    pattern:  /admin   
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:admin }
+    options:
+        expose: true 
+        
+PortalPaginawebBundle_admininicio:
+    pattern:  /admin/inicio   
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:admininicio }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandocontacto:
+    pattern:  /cargandocontacto
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandocontacto }
+    options:
+        expose: true   
+
+PortalPaginawebBundle_formContacto:
+    pattern:  /admin/formContacto
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:formContacto }
+    options:
+        expose: true
+
+PortalPaginawebBundle_formCategoria:
+    pattern:  /admin/formCategoria/{categoria_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:formCategoria }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_formProducto:
+    pattern:  /admin/formProducto/{producto_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:formProducto }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_addImagen:
+    pattern:  /admin/addImagen
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:addImagen }
+    options:
+        expose: true
+
+PortalPaginawebBundle_formImagen:
+    pattern:  /admin/formImagen
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:formImagen }
+    options:
+        expose: true
+
+PortalPaginawebBundle_cargandocategorias:
+    pattern:  /admin/cargandocategorias/{menu_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandocategorias }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandonuevacategoria:
+    pattern:  /admin/cargandonuevacategoria/{categoria_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandonuevacategoria }
+    options:
+        expose: true
+
+PortalPaginawebBundle_eliminandocategoria:
+    pattern:  /admin/eliminandocategoria/{categoria_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:eliminandocategoria }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_eliminarImagenProducto:
+    pattern:  /admin/eliminaImagenProducto/{imagen_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:eliminaImagenProducto }
+    options:
+        expose: true
+
+PortalPaginawebBundle_cargandoproductos:
+    pattern:  /admin/cargandoproductos/{categoria_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandoproductos }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandonuevoproducto:
+    pattern:  /admin/cargandonuevoproducto/{producto_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandonuevoproducto }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandomenu:
+    pattern:  /cargandomenu/{Tipomenu}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandomenu }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandointroimagen:
+    pattern:  /cargandointroimagen/{Tipomenu}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandointroimagen }
+    options:
+        expose: true
+
+PortalPaginawebBundle_cargandocontenidoprincipal:
+    pattern:  /cargandocontenidoprincipal/{producto_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandocontenidoprincipal }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandointro:
+    pattern:  /cargandointro/{menu_codigo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandointro }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_producto:
+    pattern:  /producto
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:producto }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_addIntroimagen:
+    pattern:  /admin/addIntroimagen/{seccion}/{tipo}/{nombrecampo}
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:addIntroimagen }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cargandohojavida:
+    pattern:  /admin/cargandohojavida
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cargandohojavida }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_addHojavida:
+    pattern:  /admin/addHojavida
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:addHojavida }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_downloadhojavida:
+    pattern:  /downloadhojavida
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:downloadhojavida }
+    options:
+        expose: true
+        
+PortalPaginawebBundle_cambiarContrasena:
+    pattern:  /admin/cambiarContrasena
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:cambiarContrasena }
+    options:
+        expose: true
+
+PortalPaginawebBundle_toxtyComponents:
+    pattern:  /admin/toxtyComponents
+    defaults: { _controller: PortalPaginawebBundle:Paginaweb:toxtyComponents }
+    options:
+        expose: true

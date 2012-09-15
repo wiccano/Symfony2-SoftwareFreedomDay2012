@@ -1,0 +1,49 @@
+Portal\PaginawebBundle\Entity\Categoria:
+  type: entity
+  table: categorias
+  repositoryClass: Portal\PaginawebBundle\Entity\CategoriaRepository
+  fields:
+    categoria_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: categoria_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_categoria_codigo
+        allocationSize: 1
+        initialValue: 1
+  
+    categoria_nombre:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: categoria_nombre
+    
+    categoria_descripcion:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: categoria_descripcion
+      
+    categoria_peso:
+      type: integer
+      fixed: false
+      nullable: true
+      column: categoria_peso
+      
+  manyToOne:
+    menu_codigo:
+      targetEntity: Menu
+      joinColumn:
+        name: menu_codigo
+        nullable: false
+        referencedColumnName: menu_codigo
+      
+  lifecycleCallbacks: {  }

@@ -1,0 +1,86 @@
+<!--ALL FOOTER CONTENT-->
+<footer id="footer">
+    <div id="footCont">
+    <!--LEFT SIDE FOOTER--> 
+    <aside class="leftfoot">
+    <!--1ST GROUP-->	
+        <div id="linksSide">
+        <h4>{{ translate('Servicios', {}, 'footer') | raw }}</h4>
+            <ul id="footLinks">
+                
+                <li><a href="#">{{ translate('Transporte', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Seguridad', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Comunicaciones', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Almacenamiento', {}, 'footer') | raw }}</a></li>
+            </ul>
+        </div>
+      <!--2ND GROUP-->	  
+        <div id="linksSide">
+        <h4>{{ translate('Compania', {}, 'footer') | raw }}</h4>
+            <ul id="footLinks">
+                
+                <li><a href="#">{{ translate('Resena Historica', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Videos Corporativos', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Galeria de Fotografias', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Certificaciones', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Reconocimientos', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Premios', {}, 'footer') | raw }}</a></li>
+            </ul>
+        </div>
+       <!--3RD GROUP-->	 
+        <div id="linksSide">
+        <h4>{{ translate('Zona Clientes', {}, 'footer') | raw }}</h4>
+            <ul id="footLinks"> 
+                <li><a href="#">{{ translate('Cotizaciones', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Solicitudes de Transporte', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Estatus de Mercancia', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Seguimiento de Carga', {}, 'footer') | raw }}</a></li>
+                <li><a href="#">{{ translate('Encuestas de servicio', {}, 'footer') | raw }}</a></li>                        
+            </ul>
+        </div>  
+       <!-- SOCIAL NETS GROUP --> 
+        <div id="linksSide">
+        <h4>{{ translate('Siguenos', {}, 'footer') | raw }}</h4>
+            <ul id="netsLinks">
+                <li><a href="#"><img src="{{ asset('bundles/portalpaginaweb/img/faceBookIcon.png') }}" alt="{{ translate('Unete a FaceBook', {}, 'footer') | raw }}"/></a></li>
+                <li><a href="#"><img src="{{ asset('bundles/portalpaginaweb/img/twiterIcon.png') }}" alt="{{ translate('Siguenos en Twitter', {}, 'footer') | raw }}"/></a></li>
+                <li><a href="#"><img src="{{ asset('bundles/portalpaginaweb/img/youtubeIcon.png') }}" alt="{{ translate('Miranos en YouTube', {}, 'footer') | raw }}"/></a></li>                      
+            </ul>
+        </div>  
+       <!-- CONTACT LINES--> 
+        <div id="contactFoot">
+            <img src="{{ asset('bundles/portalpaginaweb/img/MCT-FootLogo.png') }}" alt="MCT - WebSite">
+            <p>{{ translate('Linea de atencion al cliente', {}, 'footer') | raw }}: 
+            <span>(57+1) 2088200</span></p>
+        </div>
+       <!-- COPYRIGHT LINE--> 
+        <div id="copy">
+            <p>{{ translate('Derechos de Autor', {}, 'footer') | raw }}</p>
+        </div>
+        
+    </aside><!--ENDS LEFT SIDE-->
+    <!--RIGHT SIDE FOOTER-->
+    <aside class="rightfoot">
+         <div id="linksSide">
+         	<h4>{{ translate('Contactenos', {}, 'footer') | raw }}</h4>
+                <p><strong>{{ translate('Oficina Principal', {}, 'footer') | raw }}</strong><br />
+                   Calle 22 Bis # 43B - 56 B./ Quinta Paredes<br />
+                   Teléfono: (57+1) 2088200<br />
+                   Bogotá, Colombia<br />
+                   Email: <a href="#">mct@mct.com.co</a></p>
+         		<p>                       
+                   <strong>{{ translate('Despachos Bogota', {}, 'footer') | raw }}</strong><br />
+                    Zona Industrial Montevideo<br />
+                    Calle 17 A # 69B - 05<br />
+                    Teléfono: (57+1) 4242044<br />
+                    </p>
+         </div>
+            <!-- THE DOT-STUDIO LOGO SPACE -->	
+                <div class="theDot">
+                    <div class="theDotDesign"><a href="http://www.thedot-studio.com/" target="_blank"><img src="{{ asset('bundles/portalpaginaweb/img/logoDot-DesignBy.png') }}" /></a></div>
+                    <div class="theDotByThe"><a href="http://www.thedot-studio.com/" target="_blank"><img src="{{ asset('bundles/portalpaginaweb/img/logoDot-TheDotStudio.png') }}" /></a></div>
+                </div><!--LOGO DOT-->
+                               
+    </aside><!--ENDS RIGHT SIDE-->
+    </div>
+</footer><!--ENDS ALL FOOTER CONTENT-->

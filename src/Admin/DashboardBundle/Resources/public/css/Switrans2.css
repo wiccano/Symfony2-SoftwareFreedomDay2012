@@ -1,0 +1,998 @@
+/* -------------------------------------------------------------------------
+    Estilos Switrans2
+------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+    Incluyendo tipografías específicas
+
+@font-face
+{ font-family:"Frutiger LT W01 55 Roman";
+  src:url("../fonts/Frutiger_55_Roman.ttf") format("truetype"); }
+
+@font-face
+{ font-family:"Frutiger LT W01 65 Bold";
+  src:url("../fonts/Frutiger_65_Bold.ttf") format("truetype"); }
+------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------
+    Estilos Generales
+------------------------------------------------------------------------- */
+h1,h2,h3,h4,h5,h6,pre,code {
+	font-size: 1em;
+}
+
+a img,:link img,:visited img,fieldset {
+	border: none;
+}
+
+address {
+	font-style: normal;
+}
+
+header,section,article,nav,footer,hgroup {
+	display: block;
+}
+
+mark { 
+    background:transparent;
+	color:inherit;
+}
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input, dl, dt, dd, figure, figcaption {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+	font: normal 12px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif;
+    color: #;
+    background: #e9e9e9 url("../images/bg_body.png") repeat;
+}
+
+body h1 {
+	font:400 22px "Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+}
+
+h2 { 
+    font: 18px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif;
+}
+
+h3 {
+	font:16px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif;
+}
+
+h4 {
+	font:14px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif;
+    color:#5c5c5c;
+}
+
+a { 
+    font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+    font-weight:400;
+    text-decoration:none;
+    /*color:#5c5c5c;*/ 
+}
+
+header, section, article, nav, footer, hgroup {
+    display: block;
+}
+
+label.error { 
+	font-size: 85%;  
+	margin-left: 10px;
+	width: auto;
+	display: inherit; 
+}
+/* -------------------------------------------------------------------------
+    Estilo de la barra de opciones de cuenta y salir
+------------------------------------------------------------------------- */
+a.session_bar_link
+{ color:#ffffff;
+  font-family:"Frutiger LT W01 65",Arial,Helvetica,sans-serif;
+  float:left;
+  margin-right:15px;
+  line-height:25px;
+  font-size:14px;
+  font-weight:bold;
+  -webkit-text-shadow:0px 0px 0px #3f0c0e;
+  -moz-text-shadow:0px 0px 0px #3f0c0e;
+  text-shadow:0px 0px 0px #3f0c0e; }
+  
+#logout_bar_link
+{ color:#ffffff;
+  font-family:"Frutiger LT W01 65",Arial,Helvetica,sans-serif;
+  float:left;
+  margin-right:15px;
+  line-height:25px;
+  font-size:14px;
+  font-weight:bold;
+  -webkit-text-shadow:0px 0px 0px #3f0c0e;
+  -moz-text-shadow:0px 0px 0px #3f0c0e;
+  text-shadow:0px 0px 0px #3f0c0e; }
+  
+#login_hover_shadowblock
+{ display:none;
+  position:static;
+  right:0;
+  width:100px;
+  z-index:99;
+  background-color:#ffffff;
+  top:28px;
+  height:7px; }
+
+#login_hover_button
+{ width:100px;
+  z-index:100;
+  font:bold 14px/21px Arial,Helvetica,sans-serif;
+  color:#ffffff;
+  float:left;
+  position:static;
+  text-align:left;
+  padding-left:1px;
+  line-height:25px;
+  cursor:pointer;
+  background:transparent url("../images/down_pea_white.png") 75px 9px no-repeat;
+  -webkit-text-shadow:0px 0px #3f0c0e;
+  -moz-text-shadow:0px 0px 0px #3f0c0e;
+  text-shadow:0px 0px 0px #3f0c0e;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -o-user-select:none;
+  user-select:none; }
+
+#login_hover_button:hover
+{ background:transparent url("../images/down_white.png") 75px 8px no-repeat; }
+
+#login_hover_button.login_hover_button_active
+{ -webkit-text-shadow:0 0;
+  -moz-text-shadow:0 0;
+  text-shadow:0 0;
+  color:#bf252d;
+  -moz-border-radius:2px 2px 0 0;
+  border-radius:2px 2px 0 0;
+  background:#ffffff url("../images/down_pea_red.png") 75px 8px no-repeat;
+  -webkit-box-shadow:0 0 4px #999;
+  -moz-box-shadow:0 0 4px #999;
+  box-shadow:0 0 4px #999; }
+
+#login_hover_clickoff
+{ cursor:default;
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:99;
+  width:100%;
+  height:100%; }
+
+#login_hover
+{ cursor:default;
+  display:none;
+  position:absolute;
+  right:-10px;
+  width:350px;
+  color:#5c5c5c;
+  padding:25px 28px;
+  z-index:100;
+  background-color:#ffffff;
+  border:2px solid #cecece;
+  border-top:0;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  -webkit-box-shadow:0 0 4px #999;
+  -moz-box-shadow:0 0 4px #999;
+  box-shadow:0 0 4px #999; }
+
+#login_hover a
+{ color:#5c5c5c; }
+
+#login_hover img
+{ width:350px; }
+
+#login_hover h1
+{ font:400 21px "Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  float:left; }
+
+#login_hover h2
+{ font:normal 12px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif;
+  margin:6px 0 6px;
+  font-size:14px;
+  padding:0; }
+
+#login_hover form dd
+{ padding-bottom:7px; }
+
+#login_hover form p
+{ float:right;
+  margin-right:7px;
+  margin-top:5px; }
+
+#login_hover form input[type='email'],#login_hover form input[type='password']
+{ width:267px; }
+
+#login_hover form input[type='submit']
+{ width:108px;
+  float:left; }
+  
+
+
+/* -------------------------------------------------------------------------
+    Estilo de la barra de Navegación
+------------------------------------------------------------------------- */
+body>nav
+{ background-color:#f2f2f2;
+  height:69px;
+  -webkit-box-shadow:0 2px 7px rgba(83,83,83,0.25);
+  -moz-box-shadow:0 2px 7px rgba(83,83,83,0.25);
+  box-shadow:0 2px 7px rgba(83,83,83,0.25);
+  padding-top:20px;
+  position:relative;
+  min-width:1000px;
+  width:100% }
+  
+body>nav #menu_bar
+{ min-width:1000px;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:10000;
+  height:27px;
+  background-color:#ffffff;
+  border:1px solid #ffffff;
+  background:transparent url("../images/bg_barnav.png") repeat; }
+  
+
+body>nav #menu_bar #menu_wrap
+{ position:relative;
+  margin:0 auto;
+  width:88px; }
+
+body>nav #menu_bar #menu_wrap #menu
+{ width:500px;
+  height:54px;
+  position:absolute;
+  top:1px;
+  background:transparent url("../images/menu11.png") 0 0 no-repeat; }
+
+body>nav #menu_bar #menu_wrap #menu:hover
+{ background-position:0 100%; }
+
+body>nav #main_nav_tabs
+{ position:absolute;
+  top:0;
+  left:5%;
+  z-index:10001; }
+
+body>nav #main_nav_tabs .nav_tab
+{ color:#a7a191;
+  cursor:pointer;
+  background-color:#f1eee5;
+  width:30px;
+  height:89px;
+  float:left;
+  margin-right:5px;
+  border-top:0;
+  border:1px solid #cecece;
+  position:relative;
+  -moz-border-radius:0 0 4px 4px;
+  border-radius:0 0 4px 4px;
+  -webkit-box-shadow:0 9px 13px rgba(83,83,83,0.25);
+  -moz-box-shadow:0 9px 13px rgba(83,83,83,0.25);
+  box-shadow:0 9px 13px rgba(83,83,83,0.25); }
+
+body>nav #main_nav_tabs .nav_tab.active
+{ height:109px;
+  color:#ffffff;
+  font-size:17px;
+  background-color:#d9d5d5;
+  -moz-border-radius:0 0 4px 4px;
+  border-radius:0 0 4px 4px;
+  -webkit-box-shadow:0 12px 17px rgba(83,83,83,0.25);
+  -moz-box-shadow:0 12px 17px rgba(83,83,83,0.25);
+  box-shadow:0 12px 17px rgba(83,83,83,0.25); }
+
+body>nav #main_nav_tabs .nav_tab.active:hover
+{ background-color:#e8e5e5; }
+
+body>nav #main_nav_tabs .nav_tab:hover
+{ height:109px;
+  color:#5c5c5c;
+  background-color:#fffcf5; }
+
+body>nav #main_nav_tabs .nav_tab .text
+{ color:#a7a191;
+  -webkit-transform:rotate(-90deg);
+  -o-transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  transform:rotate(-90deg);
+  position:absolute;
+  bottom:12px;
+  left:0;
+  width:30px;
+  font-size:15px; }
+
+body>nav #main_nav_tabs .nav_tab .text_alt
+{ color:#a7a191;
+  -webkit-transform:rotate(-90deg);
+  -o-transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  transform:rotate(-90deg);
+  position:absolute;
+  bottom:12px;
+  left:0;
+  width:30px;
+  font-size:19px; }
+
+
+body>nav #main_nav_tabs .nav_tab a {
+    font-weight:400;
+    text-decoration:none;
+    color:#bf252d; }
+
+body>nav #account_bar
+{ position:absolute;
+  right:3%;
+  top:0;
+  text-align:right;
+  font-size:11px;
+  color:#fff; }
+
+body>nav #account_bar .me
+{ position:relative;
+  width:75px;
+  display:inline-block; }
+  
+body>nav #account_bar .me #account_menu #account_menu_clickoff
+{ cursor:default;
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:99;
+  width:100%;
+  height:100%; }
+
+body>nav #account_bar .me #account_menu #account_menu_list
+{ display:none;
+  z-index:100;
+  position:absolute;
+  right:0;
+  top:21px;
+  -webkit-box-shadow:0 8px 6px -6px #6a6a6a;
+  -moz-box-shadow:0 8px 6px -6px #6a6a6a;
+  box-shadow:0 8px 6px -6px #6a6a6a;
+  -moz-border-radius:0 0 4px 4px;
+  border-radius:0 0 4px 4px;
+  background-color:#63674e;
+  line-height:0; }
+
+body>nav #account_bar .me #account_menu #account_menu_list ul
+{ display:inline-block;
+  padding:12px;
+  width:92px; }
+
+body>nav #account_bar .me #account_menu #account_menu_list ul li
+{ clear:both; }
+
+body>nav #account_bar .me #account_menu #account_menu_list ul li.separator
+{ border-bottom:1px solid #dedede;
+  width:70px;
+  margin:5px;
+  padding-top:4px; }
+
+body>nav #account_bar .me #account_menu #account_menu_list ul a
+{ line-height:17px; }
+
+body>nav #account_bar .me #account_menu #account_menu_list ul a:hover
+{ background-color:#4d513a; }
+
+body>nav #account_bar .me a
+{ padding:2px;
+  color:#fff;
+  -webkit-text-shadow:1px 1px 1px #656565;
+  -moz-text-shadow:1px 1px 1px #656565;
+  text-shadow:1px 1px 1px #656565;
+  float:left;
+  font:12px/15px "Frutiger LT W01 55 Roman",Arial,Helvetica,sans-serif; }
+
+body>nav #account_bar .me a.actions
+{ float:right;
+  position:relative;
+  z-index:2;
+  width:28px;
+  height:18px;
+  padding:0;
+  margin:0;
+  border:1px solid transparent;
+  background:transparent url("icon_account-dropdown.png") 50% 50% no-repeat; }
+
+body>nav #account_bar .me a.actions.active
+{ border:1px solid #4d513a;
+  border-bottom-color:#63674e;
+  background-color:#63674e;
+  -webkit-box-shadow:0 0 5px rgba(0,0,0,0.38);
+  -moz-box-shadow:0 0 5px rgba(0,0,0,0.38);
+  box-shadow:0 0 5px rgba(0,0,0,0.38); }
+
+body>nav #account_bar .me a.actions.active:hover
+{ background-color:#63674e; }
+
+body>nav #account_bar .me a.actions.active::after
+{ position:absolute;
+  right:0;
+  top:100%;
+  z-index:3;
+  width:100%;
+  height:6px;
+  background:#63674e;
+  content:""; }
+
+body>nav #account_bar .me a.actions:hover
+{ background-color:#4d513a; }
+
+body>nav #account_bar .me a.actions img
+{ width:16px;
+  height:16px;
+  margin:0 3px 0 0;
+  vertical-align:-6px;
+  border:1px solid #fff; }
+
+body>nav #account_bar .me a img
+{ float:left; }
+
+body>nav #account_bar .me a span
+{ float:left;
+  padding:2px 0 0 5px; }
+
+body>nav #actions
+{ position:absolute;
+  left:50%;
+  margin-left:-118px;
+  margin-top:10px;
+  width:250px; }
+
+body>nav #actions #open_estatus
+{ float:left; }
+
+body>nav #actions #open_estatus #estatus_icon
+{ width:119px;
+  height:56px;
+  background:transparent url("../images/open_estatus.png") 0 0 no-repeat; }
+
+body>nav #actions #open_estatus #estatus_icon:hover
+{ background-position:0 100%; }
+
+body>nav #actions #open_visorgps
+{ float:left;
+  margin-left:0px; }
+
+body>nav #actions #open_visorgps #gps_icon
+{ width:119px;
+  height:56px;
+  background:transparent url("../images/open_visorgps.png") 0 0 no-repeat; }
+
+body>nav #actions #open_visorgps #gps_icon:hover
+{ background-position:0 100%; }
+
+body>nav #search_field_main
+{ float:right;
+  position:absolute;
+  right:3%;
+  top:14px; }
+
+body>nav #search_field_main input
+{ margin-top:26px;
+  float:left; }
+
+body>nav #search_field_main input[type='text']
+{ padding-left:5px;
+  width:200px;
+  height:23px;
+  display:inline; }
+
+body>nav #filters
+{ font-size:11px;
+  line-height:15px;
+  position:absolute;
+  float:left;
+  top:42px;
+  left:25%;
+  color:#868583;
+  display:none; }
+
+body>nav #filters a
+{ color:#bf252d;
+  font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-size:15px;
+  float:left;
+  padding-right:15px;
+  background:url("../images/down_red.png") 100% 4px no-repeat; }
+
+body>nav #filters a:hover
+{ background-position:100% -38px;
+  background:url("../images/down_pea_red.png") 100% 4px no-repeat; }
+
+
+body>nav #pictures_nav
+{ border-top:1px solid #cecece;
+  position:absolute;
+  top:84px;
+  background:#ffffff;
+  width:100%;
+  z-index:999;
+  padding:0 0 0px 0;
+  display:none;
+  -webkit-box-shadow:0 5px 7px #c4c4c4;
+  -moz-box-shadow:0 5px 7px #c4c4c4;
+  box-shadow:0 5px 7px #c4c4c4; }
+
+
+
+
+#global_slidedown
+{ position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index:100000; }
+
+
+/* -------------------------------------------------------------------------
+    Estilo para la selección de Idiomas
+------------------------------------------------------------------------- */
+body>nav #langs
+{ font-size:11px;
+  line-height:15px;
+  position:absolute;
+  float:left;
+  top:42px;
+  left:65%;
+  color:#868583;
+  display:none; }
+
+body>nav #langs a
+{ color:#bf252d;
+  font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-size:15px;
+  float:left;
+  padding-right:15px;
+  background:url("../images/down_red.png") 100% 4px no-repeat; }
+
+body>nav #langs a:hover
+{ background-position:100% -38px;
+  background:url("../images/down_pea_red.png") 100% 4px no-repeat; }
+
+body>nav #langs #languages_nav
+{ border-top:1px solid #cecece;
+  position:absolute;
+  top:33px;
+  background:#fff;
+  width:200px;
+  z-index:1000;
+  padding:0 0 10px 0;
+  display:none;
+  font-family:"Frutiger LT W01 65",Arial,Helvetica,sans-serif;
+  margin-right:10px;
+  padding: 10px;
+  font-size:12px;
+  font-weight:bold;
+  -webkit-box-shadow:5px 5px 7px #c4c4c4;
+  -moz-box-shadow:5px 5px 7px #c4c4c4;
+  box-shadow:5px 5px 7px #c4c4c4; }
+
+body>nav #langs #languages_nav #langselect
+{ background:#fff;
+  width:170px;
+  height:20px;
+  z-index:1000;
+  padding:0 0 10px 0;
+  font-family:"Frutiger LT W01 65",Arial,Helvetica,sans-serif;
+  margin-right:10px;
+  padding: 10px;
+  font-size:12px;
+  -webkit-box-shadow:3px 3px 5px #c4c4c4;
+  -moz-box-shadow:3px 3px 5px #c4c4c4;
+  box-shadow:3px 3px 5px #c4c4c4; }
+
+body>nav #langs #languages_nav #langselect #ingles_langselect
+{ background:url("../images/ingles.gif") 75px no-repeat;
+  width:100px;
+}
+
+body>nav #langs #languages_nav #langselect #espanol_langselect
+{ background:url("../images/espanol.gif") 75px no-repeat;
+  width:100px;}
+
+body>nav #langs #languages_nav #langselect a
+{ color:#000000;
+  font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-size:15px;
+  float:left;
+  padding-right:35px;
+  background:#ffffff; }
+ 
+#languages_hover_clickoff
+{ cursor:default;
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:99;
+  width:100%;
+  height:100%; } 
+
+
+
+/* -------------------------------------------------------------------------
+    Boton de sugerencias ubicado en la parte lateral izquierda y flotante
+------------------------------------------------------------------------- */
+div#button_feedback {
+    background-color: transparent;
+    background-image: url(../images/feedback-btn.png);
+    height: 108px;
+    width: 31px;
+    cursor: pointer;
+    margin-left: 0px;
+    overflow: hidden;
+    position: fixed;
+    text-indent: -100000px;
+    top: 45%;
+    left: 0;
+    z-index: 100000;
+    border: none;
+    border-color: none; 
+  }
+  
+  
+/* -------------------------------------------------------------------------
+    Capas mostrada mientras se ejecutan tareas tipo AJAX
+------------------------------------------------------------------------- */
+div#loading {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    z-index:99999;
+    filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;
+    
+}
+div#imgLoading {
+    display:none;
+    position:fixed;
+    top:48%;
+    left:48%;
+    width:32px;
+    height:32px;
+    z-index:99999;
+}
+
+div#loadingScreen {
+    background: url(../images/loading5.gif);
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+.datagrid-loader { 
+	display: none; 
+	position: absolute; 
+	text-align: center; 
+	z-index: 1; 
+	color:#d85909; 
+	background-color:#000000;
+	filter:alpha(opacity=70);-moz-opacity:.70;opacity:.70;
+	background-image: url(../images/loading3.gif);
+	background-repeat: no-repeat;
+	background-position: top; 
+}
+
+/* -------------------------------------------------------------------------
+    Estilos del boton gps de la barra de navegación de fotografías
+------------------------------------------------------------------------- */
+.stream_follow
+{ position:absolute;
+  right:19px;
+  top:87px; }
+
+.stream_follow .follow_unfollow_stream
+{ display:block;
+  width:32px;
+  height:31px;
+  text-indent:-8685px;
+  overflow:hidden; }
+
+.stream_follow .follow_from_stream
+{ background:transparent url("../images/btn_add-person.png") 0 0 no-repeat; }
+
+.stream_follow .follow_from_stream:hover
+{ background-position:0 100%; }
+
+.stream_follow .unfollow_from_stream
+{ background:transparent url("../images/btn_add-person-added.png") 0 0 no-repeat; }
+
+
+/* -------------------------------------------------------------------------
+    Estilos de la sección de contenido
+------------------------------------------------------------------------- */
+#content
+{ clear:both;
+  padding:10px 0 50px 10px;
+  margin:30px 3% 30px 3%;
+  min-height:400px;
+  background:#ffffff;
+  position:absolute;
+  -webkit-box-shadow:5px 5px 7px #c4c4c4;
+  -moz-box-shadow:5px 5px 7px #c4c4c4;
+  box-shadow:5px 5px 7px #c4c4c4;
+  -moz-border-radius:10px 10px 10px 10px;
+  border-radius:10px 10px 10px 10px; }
+
+#content .notice
+{ padding:20px;
+  margin:0 0 20px 0;
+  border:1px solid #dadada;
+  background:#e6f4fa; }
+
+#content .notice header
+{ overflow:hidden;
+  padding:0 0 10px 0; }
+
+#content .notice header h1
+{ float:left;
+  font-size:18px; }
+
+#content .notice header a
+{ float:right;
+  font-size:11px; }
+
+#content .notice p
+{ line-height:150%; }
+
+#content .notice .italic
+{ font-style:italic; }
+
+#content section hgroup h1
+{ color:#a79277;
+  font-size:26px;
+  padding:0 0 20px 0; }
+  
+
+/* -------------------------------------------------------------------------
+    Estilos del estatus general
+------------------------------------------------------------------------- */
+#EstatusGeneralContenedor
+{ min-width:850px;
+  /*-webkit-box-shadow:0 5px 7px #c4c4c4;
+  -moz-box-shadow:0 5px 7px #c4c4c4;
+  box-shadow:0 5px 7px #c4c4c4;*/
+  padding:0px 0;
+  background:#ffffff;
+  margin-top:0px;
+  border-top:0px solid #cecece; }
+  
+#VistaEstatusGeneral
+{ position: absolute; }
+
+#IntroEstatusGeneral
+{ background:#ffffff;
+  height:100px;
+  display: block;
+}
+
+#IntroEstatusGeneral header
+{ background:#ffffff;
+  position: relative;
+  height:100px;
+}
+
+#IntroEstatusGeneral header img
+{ background:#ffffff;
+  height:67px;
+  width:178px;
+  float:left;
+  margin-top:20px;
+}
+
+#IntroEstatusGeneral header #title
+{ background:#ffffff;
+  padding: 1px 0 10px 20px;
+  float:left;
+  width:200px;
+  margin-top:20px;
+}
+
+#IntroEstatusGeneral header #title h1
+{ color:#6b6a6a;
+  font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-size:18px;
+  padding: 0 0 5px 0;
+}
+
+#IntroEstatusGeneral header #title p
+{ color:#6b6a6a;
+  font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-size:13px;
+}
+
+
+/* -------------------------------------------------------------------------
+    Para los botones animados de estatus
+------------------------------------------------------------------------- */
+#EstatusGeneralMainButtons
+{ float: right;
+  margin:0px 10px 0px 0px;
+  min-width:460px;
+ }
+ 
+#msg_mainbuttons
+{ color:#6b6a6a;
+  font-family:"Frutiger LT W01 65 Bold",Arial,Helvetica,sans-serif;
+  font-size:13px;
+  text-align:center;
+  margin-top: 50px;
+  padding: 0 10px 0 0;
+  
+  position:absolute;
+}
+  
+.a-btn{
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:5px;
+    padding:10px 20px 10px 50px;
+    position:relative;
+    float:left;
+    display:block;
+    overflow:hidden;
+    margin:5px 5px 10px 5px; 
+    background:#fff;
+    background:-webkit-gradient(linear,left top,left bottom,color-stop(rgba(255,255,255,1),0),color-stop(rgba(246,246,246,1),0.74),color-stop(rgba(237,237,237,1),1));
+    background:-webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background:-moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background:-o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    background:linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 74%, rgba(237,237,237,1) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+    -webkit-box-shadow:0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 0px 7px rgba(0,0,0,0.2), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -webkit-transition:box-shadow 0.3s ease-in-out;
+    -moz-transition:box-shadow 0.3s ease-in-out;
+    -o-transition:box-shadow 0.3s ease-in-out;
+    transition:box-shadow 0.3s ease-in-out;
+}
+.a-btn-symbol{
+    font-family:'WebSymbolsRegular', cursive;
+    color:#555;
+    font-size:16px;
+    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
+    position:absolute;
+    left:20px;
+    line-height:32px;
+    -webkit-transition:opacity 0.3s ease-in-out;
+    -moz-transition:opacity 0.3s ease-in-out;
+    -o-transition:opacity 0.3s ease-in-out;
+    transition:opacity 0.3s ease-in-out;
+}
+.a-btn-text{
+    font-size:16px;
+    color:#d7565b;
+    line-height:16px;
+    font-weight:bold;
+    font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
+    text-shadow:1px 1px 2px rgba(255,255,255,0.5);
+    display:block;
+}
+.a-btn-slide-text{
+    font-family:Arial, sans-serif;
+    font-size:10px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#555;
+    text-shadow:0px 1px 1px rgba(255,255,255,0.9);
+}
+.a-btn-slide-icon{
+    position:absolute;
+    top:-30px;
+    width:22px;
+    height:22px;
+    background:transparent url(../images/arrow_down_black.png) no-repeat top left;
+    left:20px;
+    opacity:0.4;
+}
+.a-btn:hover{
+    background:#fff;
+    -webkit-box-shadow:0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+}
+.a-btn:hover .a-btn-symbol{
+    opacity:0;
+}
+.a-btn:hover .a-btn-slide-icon{
+    -webkit-animation:slideDown 0.9s linear infinite;
+    -moz-animation:slideDown 0.9s linear infinite;
+    animation:slideDown 0.9s linear infinite;
+}
+.a-btn:active{
+    background:#d7565b;
+    -webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+}
+.a-btn:active .a-btn-text{
+    color:#fff;
+    text-shadow:0px 1px 1px rgba(0,0,0,0.3);
+}
+.a-btn:active .a-btn-slide-text{
+    color:rgba(0,0,0,0.4);
+    text-shadow:none;
+}
+@keyframes slideDown{
+    0% { top: -30px; }
+    100% { top: 80px;}
+}
+@-webkit-keyframes slideDown{
+    0% { top: -30px; }
+    100% { top: 80px;}
+}
+@-moz-keyframes slideDown{
+    0% { top: -30px; }
+    100% { top: 80px;}
+}
+
+
+/* -------------------------------------------------------------------------
+    Para los filtros de estatus
+------------------------------------------------------------------------- */
+#FiltrosEstatusGeneralContenedor
+{ width: 80%;
+  margin: 15px 20px 10px 50px;
+  left:5%;
+  height:180px;
+  background:#fefefe;
+    -webkit-box-shadow:0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 0px 9px rgba(0,0,0,0.4), 0px 0px 0px 1px rgba(188,188,188,0.1);
+   }
+
+#FiltrosEstatusGeneralContenedor header
+{ text-align:center;
+   }
+   
+#FiltrosEstatusGeneralContenedor label
+{ margin-top:20px;
+  color:#5c5c5c;
+  font-size:14px;
+  padding: 10px 5px 10px 5px;
+  display:block;
+   }
+   
+#FiltrosEstatusGeneralContenedor fieldset
+{ border: none;
+   }
+   
+#FiltrosEstatusGeneralContenedor header p
+{ color:#d26b2d;
+  font-weight: bold;
+  font-size:16px;
+   }
+
+#FiltrosEstatusGeneralContenedor #FiltrosCampos
+{ float:left;
+  width: 405px;
+ }
+
+#FiltrosEstatusGeneralContenedor #FiltrosControles
+{ float:right;
+  width: 205px;
+ }
+ 
+ 
+#gridEstatus
+{ float: left;
+position:parent;
+  }

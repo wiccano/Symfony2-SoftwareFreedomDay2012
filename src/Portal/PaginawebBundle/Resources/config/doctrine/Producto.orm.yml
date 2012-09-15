@@ -1,0 +1,76 @@
+Portal\PaginawebBundle\Entity\Producto:
+  type: entity
+  table: productos
+  repositoryClass: Portal\PaginawebBundle\Entity\ProductoRepository
+  fields:
+    producto_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: producto_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_producto_codigo
+        allocationSize: 1
+        initialValue: 1
+    
+    producto_nombre:
+      type: string
+      length: 255
+      unique: true
+      fixed: false
+      nullable: false
+      column: producto_nombre
+      
+    producto_descripcion:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: true
+      column: producto_descripcion
+      
+    producto_peso:
+      type: integer
+      length: 5
+      fixed: false
+      nullable: true
+      column: producto_peso
+            
+    producto_fechacreacion:
+      type: datetime
+      unique: false
+      fixed: false
+      nullable: false
+      column: Producto_fechacreacion
+    
+    producto_fechamodificacion:
+      type: datetime
+      unique: false
+      fixed: false
+      nullable: false
+      column: Producto_fechamodificacion
+        
+     
+  manyToOne:
+    categoria_codigo:
+      targetEntity: Categoria
+      joinColumn:
+        name: categoria_codigo
+        nullable: false
+        referencedColumnName: categoria_codigo
+  
+  oneToMany:
+    imagenes:
+      targetEntity: Producto
+      mappedBy: producto_codigo
+      
+  lifecycleCallbacks:
+    #prePersist: [ preUpload ]
+    #preUpdate: [ preUpload ]
+    #postPersist: [ upload ]
+    #postUpdate: [ upload ]
+    #postRemove: [ removeUpload ]
+    

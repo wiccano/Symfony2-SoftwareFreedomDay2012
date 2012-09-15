@@ -1,0 +1,20 @@
+# messages.en.yml
+Usuarios del sistema: System users
+Nombre de usuario: Username
+Cuenta de usuario: User Account
+Correo electrónico: Email
+
+Ingrese nombre de usuario: Enter username
+Nombre de usuario es requerido: Username is required 
+Ingrese cuenta de usuario: Enter user account 
+Cuenta de usuario es requerida: User account is required 
+Ingrese email: Enter email 
+Email de usuario es requerido: Email user is required 
+Email de usuario es invalido: Email is invalid
+
+Ocurrio un error. Por favor comuniquese con los administradores del sistema: Error occurred. Please contact the system administrators
+Ya existe usuario con esta cuenta: User already exists with this account
+
+Fecha creación: Date created
+Codigo: Code
+Nombre: Name

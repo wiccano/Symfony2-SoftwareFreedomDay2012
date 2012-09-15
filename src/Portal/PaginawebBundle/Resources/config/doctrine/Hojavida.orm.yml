@@ -1,0 +1,26 @@
+Portal\PaginawebBundle\Entity\Hojavida:
+  type: entity
+  table: hojavida
+  fields:
+    hojavida_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: hojavida_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_hojavida_codigo
+        allocationSize: 1
+        initialValue: 1
+  
+    hojavida_nombre:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: true
+      column: hojavida_nombre
+      
+  lifecycleCallbacks: {  }

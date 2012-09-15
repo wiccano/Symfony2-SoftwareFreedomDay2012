@@ -1,0 +1,29 @@
+Admin\UsuariosBundle\Entity\UsuarioCliente:
+  type: entity
+  table: adm_usuariosclientes
+  repositoryClass: Admin\UsuariosBundle\Entity\UsuarioClienteRepository
+  id:
+    usuario_codigo:
+      associationKey: true
+           
+  fields:     
+    cliente_codigo:
+      id: true
+      type: bigint
+      nullable: false
+      column: cliente_codigo
+
+  manyToOne:
+      usuario_codigo:
+        targetEntity: Admin\UsuariosBundle\Entity\Usuario
+        joinColumns:
+          usuario_codigo:
+            referencedColumnName: usuario_codigo
+            onDelete: RESTRICT
+            onUpdate: RESTRICT          
+                           
+  lifecycleCallbacks: {  }
+
+
+
+      

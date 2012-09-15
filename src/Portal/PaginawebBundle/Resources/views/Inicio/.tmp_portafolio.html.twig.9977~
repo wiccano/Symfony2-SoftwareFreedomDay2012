@@ -1,0 +1,105 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+	
+	<div id="book"> 
+	
+	
+		<div class="book_item">
+			<img alt="" src="{{ asset('bundles/portalpaginaweb/images/book/2012_005.jpg') }}">			
+			<div class="book_imagefooter">
+				<ul>
+					
+					<li>"PLAYA"</li>
+					<li>Oleo sobre lienzo</li>
+					<li>1.50 x 2 mts</li>
+					<li>2005</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="book_text">Opera (English plural: operas; Italian plural: opere) is an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house, accompanied by an orchestra or smaller musical ensemble.
+			Opera is part of the Western s an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house,
+		</div>
+		
+		<div class="book_item">
+			<img alt="" src="{{ asset('bundles/portalpaginaweb/images/book/2012_0081.jpg') }}">			
+			<div class="book_imagefooter">
+				<ul>
+					
+					<li>"PLAYA"</li>
+					<li>Oleo sobre lienzo</li>
+					<li>1.50 x 2 mts</li>
+					<li>2005</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="book_text">Opera (English plural: operas; Italian plural: opere) is an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house, accompanied by an orchestra or smaller musical ensemble.
+			Opera is part of the Western s an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house,
+		</div>
+		
+		<div class="book_item">
+			<img alt="" src="{{ asset('bundles/portalpaginaweb/images/book/2012_014.jpg') }}">			
+			<div class="book_imagefooter">
+				<ul>
+					
+					<li>"PLAYA"</li>
+					<li>Oleo sobre lienzo</li>
+					<li>1.50 x 2 mts</li>
+					<li>2005</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="book_text">Opera (English plural: operas; Italian plural: opere) is an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house, accompanied by an orchestra or smaller musical ensemble.
+			Opera is part of the Western s an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house,
+		</div>
+		
+		<div class="book_item">
+			<img alt="" src="{{ asset('bundles/portalpaginaweb/images/book/2012_017.jpg') }}">			
+			<div class="book_imagefooter">
+				<ul>
+					
+					<li>"PLAYA"</li>
+					<li>Oleo sobre lienzo</li>
+					<li>1.50 x 2 mts</li>
+					<li>2005</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="book_text">Opera (English plural: operas; Italian plural: opere) is an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house, accompanied by an orchestra or smaller musical ensemble.
+			Opera is part of the Western s an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house,
+		</div>
+		
+		<div class="book_item">
+			<img alt="" src="{{ asset('bundles/portalpaginaweb/images/book/2012_019.jpg') }}">			
+			<div class="book_imagefooter">
+				<ul>
+					
+					<li>"PLAYA"</li>
+					<li>Oleo sobre lienzo</li>
+					<li>1.50 x 2 mts</li>
+					<li>2005</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="book_text">Opera (English plural: operas; Italian plural: opere) is an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house, accompanied by an orchestra or smaller musical ensemble.
+			Opera is part of the Western s an art form in which singers and musicians perform a dramatic work combining text (called a libretto) and musical score, usually in a theatrical setting.[1] Opera incorporates many of the elements of spoken theatre, such as acting, scenery, and costumes and sometimes includes dance. The performance is typically given in an opera house,
+		</div>
+	
+
+
+		
+		
+	</div>
+
+{% endblock %}
+
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Inicio:js_portafolio.html.twig' with {} %}
+{% endblock %}

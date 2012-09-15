@@ -1,0 +1,80 @@
+Admin\UsuariosBundle\Entity\Usuario:
+  type: entity
+  table: adm_usuarios
+  repositoryClass: Admin\UsuariosBundle\Entity\UsuarioRepository
+  fields:
+    usuario_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: usuario_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_usuarios
+        allocationSize: 1
+        initialValue: 1
+  
+    usuario_login:
+      type: string
+      length: 255
+      unique: true
+      fixed: false
+      nullable: false
+      column: usuario_login
+    
+    usuario_nombre:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+      column: usuario_nombre
+    
+    usuario_clave:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+      column: usuario_clave
+    
+    usuario_email:
+      type: string
+      length: 255
+      fixed: false
+      nullable: false
+      column: usuario_email
+    
+    usuario_activo:
+      type: boolean
+      nullable: false
+      column: usuario_activo
+      
+    usuario_fechacreacion:
+      type: datetime
+      nullable: false
+      column: usuario_fechacreacion
+    
+    usuario_fechamodificacion:
+      type: datetime
+      nullable: false
+      column: usuario_fechamodificacion
+    
+  manyToMany:
+    usuarioRoles: 
+      inversed-by: rolUsuarios
+      targetEntity: Admin\UsuariosBundle\Entity\Rol
+      joinTable:
+        name: adm_usuariosroles
+        joinColumns:
+          usuario_codigo:
+            referencedColumnName: usuario_codigo
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+        inverseJoinColumns:
+          rol_codigo:
+            referencedColumnName: rol_codigo
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+    
+  lifecycleCallbacks: {  }

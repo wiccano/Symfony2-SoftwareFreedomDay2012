@@ -1,0 +1,14 @@
+login:
+    pattern: /login
+    defaults: { _controller: AdminSeguridadBundle:Seguridad:login }
+    #defaults: { _controller: PortalPaginawebBundle:Paginaweb:zonaclientes }
+ 
+login_check:
+    pattern: /login_check
+ 
+logout:
+    pattern: /logout
+ 
+denegado:
+    pattern: /denegado
+    defaults: { _controller: AdminSeguridadBundle:Seguridad:denegado }

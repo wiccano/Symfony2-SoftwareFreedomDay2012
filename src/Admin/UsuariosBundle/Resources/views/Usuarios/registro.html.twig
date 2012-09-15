@@ -1,0 +1,26 @@
+{% extends 'AdminUsuariosBundle::layout_usuarios.html.twig' %}
+{% block Tab %}
+	<div align="center">	
+		<form dojoType="dijit.form.Form" name="formAddUsuario" id="formAddUsuario" jsId="formAddUsuario">  
+		<table>
+			<tr><td colspan="2" align="center">{{ translate('Cuenta de usuario')  | raw }}</td></tr>
+			
+			<tr><td>{{ translate('Nombre de usuario') | raw }}</td>
+    			<td>{{ form_widget(form.usuario_nombre) }}</td></tr>
+			
+			<tr><td>{{ translate('Cuenta de usuario') | raw }}</td>
+    			<td>{{ form_widget(form.usuario_login) }}</td></tr>
+    			    		
+    		<tr><td>{{ translate('Correo electrónico') | raw }}</td>
+    			<td>{{ form_widget(form.usuario_email) }}</td></tr>
+    			
+    		<tr><td align="center" colspan="2">
+    			<button dojoType="dijit.form.Button" onClick="addUsuario()" >{{ translate('Enviar')  | raw }}</button></td></tr>
+		</table>
+		{{form_rest(form)}}
+		</form>
+	</div>
+	
+	<br/>
+	
+{% endblock %}

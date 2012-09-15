@@ -1,0 +1,28 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+	<div id="login_container">
+	<p>Registre su información </p>	
+		{% if error %}
+            <div style="padding:10px 0 0 0; color:red">{{ error.message }}</div><br>
+        {% endif %}
+		<form action="{{ path("login_check") }}"  id="frmlogin_adminileana" method="post">
+		
+			<fieldset>
+			<dl class="frm_login">
+				<dt><label for="username">{{ translate('Usuario:') | raw }}</label></dt>
+				<dd>{{ form_widget(form._username) }}</dd>
+    	
+    	
+    			<dt><label for="password">{{ translate('Contraseña:') | raw }}</label></dt>
+    			<dd>{{ form_widget(form._password) }}</dd>
+    	 
+    	 	</dl>
+    	 	<p style="background:#ffffff" height:40px;></p>
+			<button dojoType="dijit.form.Button" type="submit" name="login">{{ translate('Ingresar') | raw }}</button>
+			{{ form_rest(form) }}
+			</fieldset>	    		
+		</form>
+	</div>
+{% endblock %}

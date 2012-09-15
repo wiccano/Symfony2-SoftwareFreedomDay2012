@@ -1,0 +1,7 @@
+web/bundles/
+app/cache/*
+app/logs/*
+vendor/
+vendor
+vendor.orig/
+web/assets

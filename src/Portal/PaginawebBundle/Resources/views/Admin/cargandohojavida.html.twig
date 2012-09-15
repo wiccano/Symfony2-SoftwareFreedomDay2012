@@ -1,0 +1,59 @@
+<div>
+
+<h1>Cargue el archivo que aparecerá como descargable en Información / CV del encabezado de la página:</h1><br>
+
+<button name="CVupload" id="CVupload" style="width: 300px;">Seleccionar Documento -></button>
+	
+</div>
+
+<script>
+	var button = $('#CVupload');
+    new AjaxUpload(button,{
+        action: Routing.generate("PortalPaginawebBundle_addHojavida"),
+        name: 'addHojavida',
+        responseType: false,
+        autoSubmit: true,
+        debug: false,
+        onSubmit : function(file, ext){
+        	
+        	if (!(ext && /^(pdf)$/.test(ext))) { 
+                // extension is not allowed 
+                alert('Solo documentos tipo PDF son permitidos');
+                return false;
+            }
+        	
+    	    // cambiar el texto del boton cuando se selecicione la imagen
+            button.text('Cargando');
+            // desabilitar el boton
+                this.disable();
+ 
+                interval = window.setInterval(function(){
+                    var text = button.text();
+                	if (text.length < 11){
+                		button.text(text + '.');
+	            	} else {
+	                	button.text('Cargando');
+	            	}
+	        	}, 200);
+    	},
+        onComplete: function(file, response){
+            button.text('Seleccionar Documento ->');
+ 
+            window.clearInterval(interval);
+ 
+            // Habilitar boton otra vez
+            this.enable();
+ 
+ 			if(response=="true"){
+				alert('El archivo de hoja de vida ha sido actualizado!');
+			} else {
+				alert(response);
+			}
+
+            LoadDownloadCV();						
+        },
+        messages: {
+		},
+		showMessage: function(message){ alert(message); }
+    });
+</script>

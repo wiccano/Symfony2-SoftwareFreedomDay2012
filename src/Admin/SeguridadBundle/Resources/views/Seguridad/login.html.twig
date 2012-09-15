@@ -1,0 +1,29 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+<br/>
+	<div align="center">	
+		{% if error %}
+            <div align="center">{{ translate(error.message) }}</div><br>
+        {% endif %}
+		<form action="{{ path("login_check") }}" dojoType="dijit.form.Form" name="Form" id="Form" method="post">
+			<script type="dojo/method" event="onSubmit"> if (this.validate()) {return true;} else {return false;} </script>
+		    <table>
+		    	<tr>
+		    		<td><label for="username">{{ translate('Usuario') | raw }}</label></td>
+		    		<td>{{ form_widget(form._username) }}</td>
+		    	</tr>
+		    	<tr>
+		    		<td><label for="password">{{ translate('Contraseña') | raw }}</label></td>
+		    		<td>{{ form_widget(form._password) }}</td>
+		    	</tr>
+		    	<tr>
+		    		<td colspan="2" align="center"> 
+		    			<button dojoType="dijit.form.Button" type="submit" name="login">{{ translate('Ingresar') | raw }}</button>
+	    			</td>
+		    	</tr>
+		    </table>
+		</form>
+	</div>
+{% endblock %}
+

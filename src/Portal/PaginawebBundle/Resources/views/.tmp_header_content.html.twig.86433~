@@ -1,0 +1,73 @@
+<div id="headercontainer">
+
+	<!-- START THE NAVIGATION MENU -->
+	<nav id="nav_up">
+		<div id="menu_up">
+			<ul>
+		 		<li><a id="btn_hello">Hola!</a></li>
+				<li>|</li>
+				<li>
+					<a id="btn_Information">Información / CV</a>
+					<div id="download" style="display:none;">
+						DESCARGAR PDF <<
+					</div>
+				</li>
+				<li>|</li>
+				<li><a id="btn_contact">Contacto</a></li>
+				<li>|
+				<div id="contact" style="display:none;">
+						<!-- Contenido por ajax -->
+				</div>
+				</li>
+				
+			</ul>
+		</div>
+		
+	</nav> 
+	
+	<!--LOGO Focus-->
+	<div id="logo"></div>
+	
+	<div id="logo_text">
+			www.<span class="logo_textstyle">martin-ramirez</span>.com
+	</div>
+	
+	
+	<nav id="nav_down">
+		<div id="menu_down">
+			<ul>
+		 		<li><a href="{{ path('PortalPaginawebBundle_inicio') }}" id="btn_product">Producto</a></li>
+				<li>|</li>
+				<li><a href="{{ path('PortalPaginawebBundle_espacio') }}" id="btn_space">Espacio</a></li>
+				<li>|</li>
+				<li><a href="{{ path('PortalPaginawebBundle_mobiliario') }}" id="btn_gallery">Mobiliario</a></li>
+				<li>|</li>
+				<li><a href="{{ path('PortalPaginawebBundle_prensa') }}" id="btn_news">Prensa</a></li>
+				<li>|</li>
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<li><a id="btn_admin">Admin</a></li>
+					<li>|</li>
+					<li><a href="{{ path('logout') }}" id="btn_logout">Salir</a></li>
+					<li>|</li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+	
+	<section>
+		<div id="custompage">
+			
+			<div id="custompage_img_black"><p></p></div>
+			<div id="custompage_img_pink"><p></p></div>
+			<div id="custompage_img_cyan"><p></p></div>
+			<div id="custompage_img_green"><p></p></div>
+			<div id="custompage_img_yellow"><p></p></div>
+			<div id="custompage_word"><span>Personalizar</span></div>
+
+		</div>
+	</section> 
+	<!--END HEADER-->
+	
+</div>
+
+<div id="breadcrumbs"></div>

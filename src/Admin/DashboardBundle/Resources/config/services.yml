@@ -1,0 +1,10 @@
+parameters:
+    twig.extension.switrans.utils.class: Admin\DashboardBundle\Extension\SwitransTwigExtension        
+services:
+    twig.extension.switrans.utils:
+        public: false
+        class: %twig.extension.switrans.utils.class%
+        tags:
+            -  { name: twig.extension }
+        arguments:
+            - "@service_container"

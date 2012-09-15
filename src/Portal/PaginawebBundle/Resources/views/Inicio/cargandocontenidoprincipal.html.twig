@@ -1,0 +1,23 @@
+<div >
+	
+	
+	{% for imagen in imagenes %}
+		
+		<p style="background:#FFF; text-align:left; font-weight:bold; font-size:11px; word-spacing:2px; font-family:Arial;">»   {{ imagen.ImagenTitulo }}</p>
+		{% set Imagen = 'uploads/documents/' ~ imagen.ImagenNombre %}
+		<div style="background:#FFF;">
+			<img src="{{ asset(Imagen) }}" alt="" style="max-width:807px;">
+		</div>
+		<div id="BookBlog" style="background:#FFF; text-align:justify; font-weight:lighter; font-size:12px; word-spacing:2px; font-family:Arial; color:151515; overflow:auto;">
+			<article style="margin-left:200px; padding:10px;">{{ textBook(imagen.ImagenTexto) | raw }}</article>
+		</div>
+		<br>
+	{% endfor %}
+	
+</div>
+
+<script>
+
+
+
+</script>

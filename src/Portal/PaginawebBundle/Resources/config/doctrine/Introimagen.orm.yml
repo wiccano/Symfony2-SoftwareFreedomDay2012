@@ -1,0 +1,75 @@
+Portal\PaginawebBundle\Entity\Introimagen:
+  type: entity
+  table: introimagenes
+  repositoryClass: Portal\PaginawebBundle\Entity\IntroimagenRepository
+  fields:
+    imagen_codigo:
+      id: true
+      type: integer
+      unsigned: false
+      nullable: false
+      column: imagen_codigo
+      generator:
+        strategy: SEQUENCE
+      sequenceGenerator: 
+        sequenceName: sq_introimagen_codigo
+        allocationSize: 1
+        initialValue: 1
+  
+    imagen1_nombre:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen1_nombre
+      
+    imagen1_titulo:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen1_titulo
+  
+    imagen2_nombre:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen2_nombre
+      
+    imagen2_titulo:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen2_titulo
+  
+    imagen3_nombre:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen3_nombre
+      
+    imagen3_titulo:
+      type: string
+      length: 255
+      unique: false
+      fixed: false
+      nullable: false
+      column: imagen3_titulo
+  
+  manyToOne:
+    menu_codigo:
+      targetEntity: Menu
+      joinColumn:
+        name: menu_codigo
+        nullable: true
+        referencedColumnName: menu_codigo
+      
+  lifecycleCallbacks: {  }

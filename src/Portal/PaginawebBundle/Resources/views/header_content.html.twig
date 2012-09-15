@@ -1,0 +1,66 @@
+<div id="headercontainer">
+
+	<nav id="nav_up" role="section_nav">
+		<div id="menu_up">
+			<ul>
+		 		<li><a id="btn_hello">{{ translate('Hola', {}, 'inicio') }}</a></li>
+				<li>|</li>
+				<li>
+					<a id="btn_Information">{{ translate('HojaVida', {}, 'inicio') }}</a>
+					<div id="download" style="display:none;">
+						{{ translate('DownloadPDF', {}, 'inicio') }} <<
+					</div>
+				</li>
+				<li>|</li>
+				<li><a id="btn_contact">{{ translate('Contacto', {}, 'inicio') }}</a></li>
+				<li>|
+				<div id="contact" style="display:none;">
+						<!-- Contenido por ajax -->
+				</div>
+				</li>
+				
+			</ul>
+		</div>		
+	</nav> 
+	
+	<div id="logo"></div>
+	<div id="logo2"></div>	
+	
+	<nav id="nav_down" role="article_nav">
+		<div id="menu_down">
+			<ul>
+		 		<li><a href="#" id="btn_product" >{{ translate('Inicio', {}, 'inicio') }}</a></li>
+				<li>|</li>
+				<li><a href="#" id="btn_space">{{ translate('The Book', {}, 'inicio') }}</a></li>
+				<li>|</li>
+				<li><a href="#" id="btn_gallery">{{ translate('The Cookbook', {}, 'inicio') }}</a></li>
+				<li>|</li>
+				<li><a href="#" id="btn_news">{{ translate('The Components', {}, 'inicio') }}</a></li>
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<li>|</li>
+					<li><a id="btn_admin">Admin</a></li>
+					<li>|</li>
+					<li><a href="{{ path('logout') }}" id="btn_logout">{{ translate('Salir', {}, 'admin') }}</a></li>
+				{% endif %}
+			</ul>
+			<ul id="nav_languages">
+				<li><a href="#" id="btn_spanish" >{{ translate('Espanol', {}, 'inicio') }}</a></li>
+				<li><a href="#" id="btn_english" >{{ translate('Ingles', {}, 'inicio') }}</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<aside>
+		<div id="custompage">
+			<div id="custompage_img_cyan"><p></p></div>
+			<div id="custompage_img_pink"><p></p></div>
+			<div id="custompage_img_black"><p></p></div>
+			<div id="custompage_img_green"><p></p></div>
+			<div id="custompage_img_yellow"><p></p></div>
+			<div id="custompage_word"><span>{{ translate('Personalizar', {}, 'inicio') }}</span></div>
+		</div>
+	</aside> 
+	
+</div>
+
+<div id="breadcrumbs"></div>

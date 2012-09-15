@@ -1,0 +1,47 @@
+<!-- ///*** SPECIAL SCRIPTS GENERAL PAGE-*/// -->
+<script type="text/javascript">
+	var book, aboutme;
+	$(document).ready(function()
+	{
+		book = {
+			$btn_book: function(){
+				return $("#menu  #btn_book");
+			},
+			$slide_book: function(){
+				return $("#menu_slide");
+			},
+			$showslide: function(){
+				book.$slide_book().slideDown('slow');
+			},
+			$hideslide: function(){
+				book.$slide_book().slideUp(200);
+			},
+			$toggleslide: function(){
+				if(book.$slide_book().is(":visible")) {
+					book.$hideslide();
+				} else {
+					book.$showslide();
+				}
+				return false; 
+			},
+		},
+		book.$btn_book().on("click", function(){
+			return book.$toggleslide();
+		});
+		
+		aboutme = {
+			$btn_me: function(){
+				return $("#menu #btn_aboutme");
+			},
+			$openAboutme: function(){
+				var url = Routing.generate("PortalPaginawebBundle_inicio");
+				$(location).attr('href', url);
+			},
+		},
+		aboutme.$btn_me().on("click", function(){
+			return aboutme.$openAboutme();
+		});
+	});
+	
+</script>
+

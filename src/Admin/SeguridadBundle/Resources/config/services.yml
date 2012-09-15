@@ -1,0 +1,36 @@
+parameters:
+    success_handler.class: Admin\SeguridadBundle\Authentication\SuccessHandler
+    switrans.session.class: Admin\SeguridadBundle\Extension\SwitransSessionExtension 
+    
+    pdo.db_options:
+        db_table:    adm_session
+        db_id_col:   session_id
+        db_data_col: session_value
+        db_time_col: session_time
+        db_ip_col:   session_ip
+        db_user_col:   usuario_codigo 
+            
+services:
+
+    request:
+        class: Symfony\Component\HttpFoundation\Request 
+        
+#    session.storage.pdo:
+##        class: Symfony\Component\HttpFoundation\SessionStorage\PdoSessionStorage
+#        class: %switrans.session.class%
+#        arguments: 
+#          - @request 
+#          - @service_container
+#          - @doctrine.dbal.switrans.wrapped_connection
+#          - %session.storage.options%
+#          - %pdo.db_options%
+        
+#    doctrine.dbal.switrans.wrapped_connection:
+#        factory_service: switrans.dbal
+#        factory_method: getWrappedConnection
+#        class: PDO
+        
+#    success_handler.login:
+#        class:  %success_handler.class% 
+#        public: false
+#        arguments: [@service_container, @router, @session]

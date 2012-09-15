@@ -1,0 +1,9 @@
+registro:
+    pattern:  /{_locale}/registroUsuario
+    defaults: { _controller: AdminUsuariosBundle:Usuarios:registro }
+    
+AdminUsuarios_ejecutarCambioContrasena:
+    pattern:  /admin/ejecutarCambioContrasena
+    defaults:  { _controller: AdminUsuariosBundle:Usuarios:ejecutarCambioContrasena }
+    options:
+        expose: true

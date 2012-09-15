@@ -1,0 +1,99 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+<div id="admin_container">
+	<p>Sistema de Administración</p>
+	
+	<ul class="tabs">
+	    <li><a href="#tab1">Contacto</a></li>
+	    <li><a href="#tab2">Categorias</a></li>
+		<li><a href="#tab3">Productos</a></li>
+		<li><a href="#tab4">Intro</a></li>
+		<li><a href="#tab5">Información / CV</a></li>
+		<li><a href="#tab6">Contraseña</a></li>
+		
+		<li><a href="#tab7"> Toxty Components </a></li>
+		
+	</ul>
+	
+	<div class="tab_container">
+	    <div id="tab1" class="tab_content">
+	        <!--Content-->
+			<form id="Form_Contacto" name="Form_Contacto" method="post" {{ form_enctype(formContacto) }}>
+				<div style="display:none">{{ form_widget(formContacto._token) }}</div>
+				<h2>Esta es la información que aparece en Contacto</h2>
+				<div id="FrmContacto_result"></div>
+				<dl>
+					
+					<dt><label for="contacto_email">Correo electrónico:</label>
+			    	<dd>{{ form_widget(formContacto.contacto_email) }}</dd>
+					
+					<dt><label for="contacto_info">Datos de Contacto:</label>
+			    	<dd>{{ form_widget(formContacto.contacto_info) }}</dd>
+					
+				</dl>
+				
+				<div>{{ form_rest(formContacto) }}</div>
+				<br>
+				<button type="submit" name="actualizar">Actualizar</button>
+			</form>
+			
+	    </div>
+	    
+	    <div id="tab2" class="tab_content">		
+			<div id="tab2_Preloader" style"display:none;" class="Preloader">
+		 	</div>
+		 
+		 	<div id="tab2_content">
+		 	</div>
+		</div>
+		
+		<div id="tab3" class="tab_content">
+	       <!--Content-->		
+			<div id="tab3_Preloader" style"display:none;" class="Preloader">
+		 	</div>
+		 
+		 	<div id="tab3_content">
+		 	</div>
+		</div>
+		
+		<div id="tab4" class="tab_content">
+			<!--Content-->
+			<div id="tab4_Preloader" style"display:none;" class="Preloader"></div>
+	       <div id="IntroImages"></div>		
+		</div>
+		
+		<div id="tab5" class="tab_content">
+			<!--Content-->
+			<div id="tab5_Preloader" style"display:none;" class="Preloader"></div>
+	       <div id="InformacionCV"></div>		
+		</div>
+		
+		<div id="tab6" class="tab_content">
+			<!--Content-->
+			<div id="tab6_Preloader" style"display:none;" class="Preloader"></div>
+	       <div id="Password"></div>		
+		</div>
+		
+		<div id="tab7" class="tab_content">
+			<!--Content-->
+			<div id="tab7_Preloader" style"display:none;" class="Preloader"></div>
+	       <div id="datagrid_usuarios"></div>		
+		</div>
+		
+	</div>
+	
+	<div id="admincontent">
+		<p id="CategoryTitle" style=”display: none">Lista de Categorias</p>
+		<div id="Table_Category_Preloader" style"display:none;" class="Preloader"></div>
+		<div id="CategoryList"></div>
+	</div>
+	
+		
+</div>
+{% endblock %}
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Admin:js_inicio.html.twig' with {} %}
+{% endblock %}

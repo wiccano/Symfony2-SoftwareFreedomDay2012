@@ -1,0 +1,32 @@
+# Portal/PaginawebBundle/Resources/config/validation.yml
+Portal\PaginawebBundle\Entity\Producto:
+    properties:
+        producto_nombre:
+            - NotBlank:
+                message: El nombre del producto no puede estar vacio
+        producto_fechacreacion:
+            - NotBlank:
+                message: Error inesperado con la fecha de creación del producto
+            - Type: \DateTime
+        producto_fechamodificacion:
+            - NotBlank:
+                message: Error inesperado con la fecha de modificacion del producto
+            - Type: \DateTime
+            
+Portal\PaginawebBundle\Entity\Imagen:
+    properties:
+        imagen_texto:
+            - NotBlank:
+                message: La imagen debe contener un texto
+        imagen_titulo:
+            - NotBlank:
+                message: La imagen debe tener un titulo
+            
+Portal\PaginawebBundle\Entity\Intromagen:
+    properties:
+        imagen_nombre:
+            - NotBlank:
+                message: La imagen debe contener un nombre
+        imagen_titulo:
+            - NotBlank:
+                message: La imagen debe tener un titulo

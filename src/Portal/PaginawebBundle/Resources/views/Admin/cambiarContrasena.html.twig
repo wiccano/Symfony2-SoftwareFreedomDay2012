@@ -1,0 +1,53 @@
+<section>
+	
+	<h1>Formulario para cambiar la contraseña del usuario administrador del la aplicación</h1><br><br>
+	
+
+	<form id="formCambiarContrasena" method="post">
+		 <fieldset>
+		 	<dl>
+				<dt>Contraseña Actual:</dt>
+				<dd>{{ form_widget(formContrasena.contrasena_actual) }}</dd>
+				
+				<dt>Nueva Contraseña:</dt>
+				<dd>{{ form_widget(formContrasena.contrasena_nueva) }}</dd>
+				
+				<dt>Confirmar Nueva Contraseña:</dt>
+				<dd>{{ form_widget(formContrasena.contrasena_repeated) }}</dd>
+				
+			</dl>
+			<div>{{ form_rest(formContrasena) }}</div>  
+		 </fieldset>
+		 <br>
+		 <div>
+	        <input type="button" id="submit-passwd" value="Confirmar" />
+	    </div>
+    </form> 					
+
+</section>
+
+<script>
+	
+	$("#submit-passwd" ).click(function () { 			
+		$.ajax({
+			type: "POST",
+			url: Routing.generate("AdminUsuarios_ejecutarCambioContrasena"),
+			data: $("#formCambiarContrasena").serialize(),
+			success: function(data){					
+				data = data.replace(/^\s*|\s*$/g,"");
+				if(data == "OK")
+				{
+					alert('La contraseña ha sido cambiada!');
+					var url = Routing.generate("PortalPaginawebBundle_admininicio");
+					$(location).attr('href', url);							
+				}else{
+					alert(data);									
+				}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				alert("Error: "+XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText);
+			}
+		}); 		
+	}); 
+	
+</script>

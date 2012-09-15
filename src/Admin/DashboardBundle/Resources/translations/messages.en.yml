@@ -1,0 +1,13 @@
+# messages.en.yml
+Salir: Logout
+Cargando: Loading
+
+# Toxty_Datagrid
+cantidadRegistros.Text: We found %cantidad% items
+registrosPorPagina.Text: Items per page
+noRegistros.Text: No records found 
+Eliminar: Remove
+Página: Page
+de: of
+Mostrar: Display
+Ordernar por: Order by

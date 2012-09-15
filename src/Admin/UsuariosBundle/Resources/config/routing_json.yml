@@ -1,0 +1,9 @@
+AdminUsuarios_pageGridUsuarios:
+    pattern:  /adminusuarios/pageGridUsuario
+    defaults:  { _controller: AdminUsuariosBundle:Usuarios:pageGridUsuario }
+    prefix: /{_locale}
+    options:
+        expose: true
+    requirements:
+        _locale: es|en    
+         

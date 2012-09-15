@@ -1,0 +1,51 @@
+<!-- THE DUTTONS COMPANY-->
+<div id="topArea">
+
+	<div id="lang">
+        <a href="#" id="espanol_langselect"><img src="{{ asset('bundles/portalpaginaweb/img/langFlag-Col.png') }}" alt="{{ translate('Seleccionar Idioma - ESP') }}" /></a>
+        <a href="#" id="ingles_langselect"><img src="{{ asset('bundles/portalpaginaweb/img/langFlag-Uk.png') }}" alt="{{ translate('Seleccionar Idioma - UK') }}" /></a>
+    	<hr class="spLang" />
+        <span> {{ translate('Idioma', {}, 'header') }} </span>
+    </div>
+    
+    <div id="email"><br />
+    	<a href="#" class="emailBt" id="emailselect">{{ translate('Correo Corporativo', {}, 'header') }}</a>
+    </div>
+    
+</div>
+
+<!--LOGO MCT-->
+<div id="logo">
+    <a href="#"><img src="{{ asset('bundles/portalpaginaweb/img/logoMCT.png') }}" alt="{{ translate('MCT - Confiabilidad en cada entrega', {}, 'header') }}" /></a>
+</div>
+
+<!-- START THE NAVIGATION MENU -->
+<nav id="nav">
+    <ul class="navs">
+        <li><a href="{{ path('PortalPaginawebBundle_inicio') }}">{{ translate('Home', {}, 'header') }}</a></li>
+        <li><a href="#" id="services_link">{{ translate('Servicios', {}, 'header') }}</a>
+            <ul>
+                <li><a href="{{ path('PortalPaginawebBundle_servicioTransporte') }}">{{ translate('Transporte', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_servicioSeguridad') }}">{{ translate('Seguridad', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_servicioComunicaciones') }}">{{ translate('Comunicaciones', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_servicioAlmacenamiento') }}">{{ translate('Almacenamiento', {}, 'header') }}</a></li>
+            </ul>
+        </li>
+        <li><a href="#" id="compania_link">{{ translate('Compania', {}, 'header') }}</a>
+            <ul>
+                <li><a href="{{ path('PortalPaginawebBundle_nosotros') }}">{{ translate('Nosotros', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_videosCorporativos') }}">{{ translate('Videos Corporativos', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_galeriaImagenes') }}">{{ translate('Galeria de Fotografias', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_certificaciones') }}">{{ translate('Certificaciones', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_reconocimientos') }}">{{ translate('Reconocimientos', {}, 'header') }}</a></li>
+                <li><a href="{{ path('PortalPaginawebBundle_premios') }}">{{ translate('Premios', {}, 'header') }}</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ path('PortalPaginawebBundle_noticias') }}">{{ translate('Noticias', {}, 'header') }}</a></li>
+        <li><a href="{{ path('PortalPaginawebBundle_contacto') }}">{{ translate('Contacto', {}, 'header') }}</a></li>
+    </ul>
+    <ul class="lerfBtArea">
+		<li><a href="{{ path('PortalClientesBundle_inicio') }}">{{ translate('Zona Clientes', {}, 'header') }}</a></li>
+    </ul>    
+</nav>   
+<!--END HEADER-->

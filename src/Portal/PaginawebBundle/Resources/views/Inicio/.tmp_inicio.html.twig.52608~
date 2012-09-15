@@ -1,0 +1,34 @@
+{% extends "::layout_paginaweb.html.twig" %}
+
+{% block content %}
+
+<div id=intro>
+	
+	<div id=intro_left>
+		<img alt="" src="{{ asset('bundles/portalpaginaweb/images/vdeverde.jpg') }}">
+		<div id=intro_left_colorfooter>
+			<p>>> v de verde</p>
+		</div>		
+	</div>
+	
+	<div id=intro_up>
+		<img alt="" src="{{ asset('bundles/portalpaginaweb/images/jarrondebronce.jpg') }}">
+		<div id=intro_up_colorfooter>
+			<p>>> jarrón bronce</p>
+		</div>	
+	</div>
+	
+	<div id=intro_down>
+		<img alt="" src="{{ asset('bundles/portalpaginaweb/images/fromrussia.jpg') }}">
+		<div id=intro_down_colorfooter>
+			<p>>> from russia with love</p>
+		</div>		
+	</div>
+</div>
+
+{% endblock %}
+
+
+{% block javascript_start %}
+    {% include 'PortalPaginawebBundle:Inicio:js_inicio.html.twig' with {} %}
+{% endblock %}

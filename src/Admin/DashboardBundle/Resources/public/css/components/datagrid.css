@@ -1,0 +1,40 @@
+.datagrid table {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    border-color: #B7B7B7;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    border-collapse: collapse;
+   	margin-left:auto; 
+    margin-right:auto;
+}
+
+.datagrid table td {
+    border: 1px solid #B7B7B7;
+    vertical-align: middle;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.datagrid table th {
+    background-color: #edf3fa;
+    border-color: #B7B7B7;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    padding: 1px;
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+
+.datagrid_paginator {
+	background: #FFF;
+	left:50%;
+	width:540px;
+	position: relative;
+	margin-left: -270px;
+	overflow: auto;
+}
+

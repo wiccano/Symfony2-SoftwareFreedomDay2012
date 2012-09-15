@@ -1,0 +1,53 @@
+.item 
+{ 
+	padding:0.5em 0.5em 1em 0.5em;
+	margin:0 0 2em; 
+}
+
+.rounded 
+{ 
+	border-radius: 8px; 
+	-moz-border-radius: 8px; 
+	-webkit-border-radius: 8px; 
+	-khtml-border-radius: 8px; 
+}		
+
+.dark 
+{ 
+	background:#151515; 
+}
+
+.map 
+{ 
+	width: 100%; 
+}
+
+.mapcontroller 
+{ 
+	padding-bottom: 0.5em; 
+	width: 100%;
+}
+
+.combo_poins {
+    width: 200px;
+    padding: 5px;
+}
+.map_info
+{ 
+	cursor:default;
+	display:none;
+	position:absolute;
+	/*right:-10px;*/
+	width:300px;
+	color:#5c5c5c;
+	padding:25px 28px;
+	z-index:100;
+	background-color:#ffffff;
+	border:2px solid #cecece;
+	border-top:0;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	-webkit-box-shadow:0 0 4px #999;
+	-moz-box-shadow:0 0 4px #999;
+	box-shadow:0 0 4px #999; 
+}

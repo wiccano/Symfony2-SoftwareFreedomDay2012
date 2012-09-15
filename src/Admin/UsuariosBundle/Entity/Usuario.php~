@@ -1,0 +1,348 @@
+<?php
+
+namespace Admin\UsuariosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+
+class Usuario implements AdvancedUserInterface, \Serializable
+{
+
+    protected $usuario_codigo;
+	protected $usuario_login;
+    protected $usuario_nombre;
+    protected $usuario_clave;
+    protected $usuario_email;
+    protected $usuario_activo;
+    protected $usuario_fechacreacion; 
+    protected $usuario_fechamodificacion;
+	
+	private $usuarioRoles;
+
+    public function __construct()
+    {
+		$this->usuario_activo = true;
+		$this->usuario_fechacreacion = new \DateTime();
+		$this->usuarioRoles = new \Doctrine\Common\Collections\ArrayCollection();	
+	}
+    
+    public function __toString()
+    {
+        return $this->getUsuarioNombre();
+    }
+
+    public function getUsuarioCodigo()
+    {
+        return $this->usuario_codigo;
+    }
+
+    public function setUsuarioLogin($usuario_login)
+    {
+        $this->usuario_login = $usuario_login;
+    }
+
+    public function getUsuarioLogin()
+    {
+        return $this->usuario_login;
+    }
+	
+    public function setUsuarioNombre($usuario_nombre)
+    {
+        $this->usuario_nombre = $usuario_nombre;
+	}
+
+    public function getUsuarioNombre()
+    {
+        return $this->usuario_nombre;
+    }
+
+    public function setEstadoCodigo($estado_codigo)
+    {
+        $this->estado_codigo = $estado_codigo;
+	}
+
+    public function getEstadoCodigo() 
+    {
+        return $this->estado_codigo;
+    }
+
+    public function setUsuarioEmail($usuario_email)
+    {
+        $this->usuario_email = $usuario_email;
+    }
+
+    public function getUsuarioEmail()
+    {
+        return $this->usuario_email;
+    }
+
+    public function setUsuarioActivo($usuario_activo)
+    {
+        $this->usuario_activo = $usuario_activo;
+    }
+
+    public function getUsuarioActivo()
+    {
+        return $this->usuario_activo;
+    }
+	 
+    public function setUsuarioFechacreacion($usuario_fechacreacion)
+    {
+        $this->usuario_fechacreacion = $usuario_fechacreacion;
+    }
+
+    public function getUsuarioFechacreacion()
+    {
+        return $this->usuario_fechacreacion;
+    }
+
+    public function setUsuarioFechamodificacion($usuario_fechamodificacion)
+    {
+        $this->usuario_fechamodificacion = $usuario_fechamodificacion;
+    }
+
+    public function getUsuarioFechamodificacion()
+    {
+        return $this->usuario_fechamodificacion;
+    }
+
+    public function setPassword($usuario_clave)
+    {
+        $this->usuario_clave = $usuario_clave;
+    }
+
+    public function getPassword()
+    {
+        return $this->usuario_clave;
+    }
+	/**
+     * Gets the user roles.
+     *
+     * @return ArrayCollection A Doctrine ArrayCollection
+    */
+    public function getUsuarioRoles()
+    {
+        return $this->usuarioRoles;
+    }
+		
+	/*
+	* Implementation of UserInterface
+	*/
+
+    public function getRoles()
+    {
+        return $this->getUsuarioRoles()->toArray();
+    }
+
+    public function getSalt()
+    {
+        return false;
+    }
+
+    public function getUsername()
+    {
+        return $this->usuario_login;
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function equals(UserInterface $user)
+    {
+        return $user->getUsername() == $this->getUsername();
+    }
+		
+	public function serialize()
+    {
+    	return serialize( array( $this->getUsuarioCodigo(),$this->getUsuarioLogin() ));
+    } 
+	
+	public function unserialize($serialized)
+	{
+		list($this->usuario_codigo, $this->usuario_login) = unserialize($serialized);
+	
+	} 
+	
+	/*
+	* Implementation of AdvancedUserInterface
+	*/
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+    	return $this->usuario_activo;
+	}
+
+    /**
+     * Set usuario_clave
+     *
+     * @param string $usuarioClave
+     */
+    public function setUsuarioClave($usuarioClave)
+    {
+        $this->usuario_clave = $usuarioClave;
+    }
+
+    /**
+     * Get usuario_clave
+     *
+     * @return string 
+     */
+    public function getUsuarioClave()
+    {
+        return $this->usuario_clave;
+    }
+
+    /**
+     * Add usuarioRoles
+     *
+     * @param Admin\UsuariosBundle\Entity\Rol $usuarioRoles
+     */
+    public function addRol(\Admin\UsuariosBundle\Entity\Rol $usuarioRoles)
+    {
+        $this->usuarioRoles[] = $usuarioRoles;
+    }
+    /**
+     * @var integer $usuario_codigo_switrans1
+     */
+    private $usuario_codigo_switrans1;
+
+    /**
+     * @var integer $usuario_codigo_creacion
+     */
+    private $usuario_codigo_creacion;
+
+    /**
+     * @var integer $usuario_codigo_modificacion
+     */
+    private $usuario_codigo_modificacion;
+
+    /**
+     * @var Admin\UsuariosBundle\Entity\Usuario
+     */
+    private $usuarioModificacion;
+
+
+    /**
+     * Set usuario_codigo_switrans1
+     *
+     * @param integer $usuarioCodigoSwitrans1
+     */
+    public function setUsuarioCodigoSwitrans1($usuarioCodigoSwitrans1)
+    {
+        $this->usuario_codigo_switrans1 = $usuarioCodigoSwitrans1;
+    }
+
+    /**
+     * Get usuario_codigo_switrans1
+     *
+     * @return integer 
+     */
+    public function getUsuarioCodigoSwitrans1()
+    {
+        return $this->usuario_codigo_switrans1;
+    }
+
+    /**
+     * Set usuario_codigo_creacion
+     *
+     * @param integer $usuarioCodigoCreacion
+     */
+    public function setUsuarioCodigoCreacion($usuarioCodigoCreacion)
+    {
+        $this->usuario_codigo_creacion = $usuarioCodigoCreacion;
+    }
+
+    /**
+     * Get usuario_codigo_creacion
+     *
+     * @return integer 
+     */
+    public function getUsuarioCodigoCreacion()
+    {
+        return $this->usuario_codigo_creacion;
+    }
+
+    /**
+     * Set usuario_codigo_modificacion
+     *
+     * @param integer $usuarioCodigoModificacion
+     */
+    public function setUsuarioCodigoModificacion($usuarioCodigoModificacion)
+    {
+        $this->usuario_codigo_modificacion = $usuarioCodigoModificacion;
+    }
+
+    /**
+     * Get usuario_codigo_modificacion
+     *
+     * @return integer 
+     */
+    public function getUsuarioCodigoModificacion()
+    {
+        return $this->usuario_codigo_modificacion;
+    }
+
+    /**
+     * Set usuarioModificacion
+     *
+     * @param Admin\UsuariosBundle\Entity\Usuario $usuarioModificacion
+     */
+    public function setUsuarioModificacion(\Admin\UsuariosBundle\Entity\Usuario $usuarioModificacion)
+    {
+        $this->usuarioModificacion = $usuarioModificacion;
+    }
+
+    /**
+     * Get usuarioModificacion
+     *
+     * @return Admin\UsuariosBundle\Entity\Usuario 
+     */
+    public function getUsuarioModificacion()
+    {
+        return $this->usuarioModificacion;
+    }
+    /**
+     * @var Admin\UsuariosBundle\Entity\Usuario
+     */
+    private $usuarioCreacion;
+
+
+    /**
+     * Set usuarioCreacion
+     *
+     * @param Admin\UsuariosBundle\Entity\Usuario $usuarioCreacion
+     */
+    public function setUsuarioCreacion(\Admin\UsuariosBundle\Entity\Usuario $usuarioCreacion)
+    {
+        $this->usuarioCreacion = $usuarioCreacion;
+    }
+
+    /**
+     * Get usuarioCreacion
+     *
+     * @return Admin\UsuariosBundle\Entity\Usuario 
+     */
+    public function getUsuarioCreacion()
+    {
+        return $this->usuarioCreacion;
+    }
+}
